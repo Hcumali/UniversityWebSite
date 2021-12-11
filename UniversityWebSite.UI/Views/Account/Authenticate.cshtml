@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+
+    var returnUrl = ViewData["ReturnUrl"] as string;
+    var error = TempData["Error"] as string;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="Login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
+        @Html.AntiForgeryToken()
+
+        <input type="text" name="username" placeholder="Username" />
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit" value="login" />
+    </form>
+
+    @{
+        if (!string.IsNullOrEmpty(error))
+        {
+            <h2 class="alert-danger" style="padding:30px">@error</h2>
+        }
+    }
+</body>
+</html>
