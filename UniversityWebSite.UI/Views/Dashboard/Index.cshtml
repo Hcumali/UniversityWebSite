@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    Layout = "_LayoutDashboard";
+    ViewData["Title"] = "Yönetim Paneli";
+}
 
 
 
@@ -8,9 +11,10 @@
 <h2>IsAuthenticated:  @User.Identity.IsAuthenticated</h2>
 
 <ul>
-    @{ foreach (var c in User.Claims) {
+    @{ foreach (var c in User.Claims)
+        {
             <li>@c.Type: @c.Value</li>
-       } 
+        }
     }
 
 </ul>
