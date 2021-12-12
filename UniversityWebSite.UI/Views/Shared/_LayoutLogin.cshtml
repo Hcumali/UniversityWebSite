@@ -4,21 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>@ViewData["Title"]</title>
-
-    <link rel="shortcut icon" href="~/favicon.ico" />
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <partial name="~/Views/Shared/Partials/_PartialLoginLink.cshtml" />
 </head>
 <body>
-    <h1>Login Layout</h1>
-
-    <div id="content">
+    <div class="limiter">
         @RenderBody()
     </div>
+    <div id="dropDownSelect1"></div>
 
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <partial name="~/Views/Shared/Partials/_PartialLoginScript.cshtml" />
 </body>
 </html>
