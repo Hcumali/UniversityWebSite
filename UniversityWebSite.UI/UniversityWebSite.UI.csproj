@@ -12,7 +12,6 @@
   <ItemGroup>
     <Folder Include="wwwroot\assets\Home\" />
     <Folder Include="wwwroot\assets\Dashboard\" />
-    <Folder Include="wwwroot\css\Dashboard\" />
     <Folder Include="wwwroot\css\Home\" />
     <Folder Include="wwwroot\js\Dashboard\" />
     <Folder Include="wwwroot\js\Home\" />

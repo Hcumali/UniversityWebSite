@@ -5,16 +5,18 @@
 
 
 
-<h1>this is a dashboard</h1>
-<h2>Welcome @User.Identity.Name</h2>
-<h2>AuthenticationType:  @User.Identity.AuthenticationType</h2>
-<h2>IsAuthenticated:  @User.Identity.IsAuthenticated</h2>
+<div id="contentIn">
+    <h1>this is a dashboard</h1>
+    <h2>Welcome @User.Identity.Name</h2>
+    <h2>AuthenticationType:  @User.Identity.AuthenticationType</h2>
+    <h2>IsAuthenticated:  @User.Identity.IsAuthenticated</h2>
 
-<ul>
-    @{ foreach (var c in User.Claims)
-        {
-            <li>@c.Type: @c.Value</li>
+    <ul>
+        @{ foreach (var c in User.Claims)
+            {
+                <li>@c.Type: @c.Value</li>
+            }
         }
-    }
 
-</ul>
+    </ul>
+</div>
