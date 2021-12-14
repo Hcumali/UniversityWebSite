@@ -1,5 +1,7 @@
 ﻿<nav class="sidenav">
     <h2>Düzce Üniversitesi</h2>
+    <h3>Yönetim Paneli</h3>
+
     <ul class="main-buttons">
         <li>
             <i class="fa fa-circle fa-2x"></i>
@@ -34,5 +36,9 @@
             </ul>
         </li>
     </ul>
-    <div><a href="#">Çıkış Yap</a></div>
+
+    <!--Home-->
+    <div><a id="home" asp-controller="Home" asp-action="Index">Anasayfa</a></div>
+    <!--Logout-->
+    <div><a id="logout" asp-controller="Dashboard" asp-action="Logout">Çıkış Yap</a></div>
 </nav>

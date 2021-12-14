@@ -17,11 +17,21 @@
     color: white;
     display: flex;
     justify-content: center;
-    text-decoration: underline;
     font-family: "Open Sans", sans-serif;
 }
 
 .sidenav h2:hover {
+    color: lightgreen;
+}
+
+.sidenav h3 {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
+}
+
+.sidenav h3:hover {
     color: lightgreen;
 }
 
@@ -36,16 +46,22 @@
     padding: 16px;
 }
 
+.sidenav #logout:hover {
+    background-color: #292c35;
+    color: red;
+    cursor: pointer;
+}
+
+.sidenav #home:hover {
+    background-color: #292c35;
+    color: lightgreen;
+    cursor: pointer;
+}
+
 .sidenav div {
     display: flex;
     align-items: flex-end;
     justify-content: center;
-}
-
-.sidenav a:hover {
-    background-color: #292c35;
-    color: red;
-    cursor: pointer;
 }
 
 .sidenav .main-buttons {
