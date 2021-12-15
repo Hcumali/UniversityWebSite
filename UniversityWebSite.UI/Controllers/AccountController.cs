@@ -35,6 +35,7 @@ namespace UniversityWebSite.UI.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
 
+            // This will coming from the database 
             if (username == "ali" && password == "123456")
             {
                 var userClaims = new List<Claim>()

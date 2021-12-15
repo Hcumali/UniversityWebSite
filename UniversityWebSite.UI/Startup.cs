@@ -25,6 +25,7 @@ namespace UniversityWebSite.UI
         {
             services.AddControllersWithViews();
 
+            // Cookie OAuth
             services.AddAuthentication("CookieAuth")
                 .AddCookie("CookieAuth", options => {
                     options.Cookie.Name = "Authenticate";
@@ -59,8 +60,9 @@ namespace UniversityWebSite.UI
                 app.UseHsts();
             }
             // Middlewares
-
+            //-----------------------------------------------------
             app.UseHttpsRedirection();
+
             // wwwroot folder
             app.UseStaticFiles();
 
