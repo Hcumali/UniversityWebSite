@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversityWebSite.Business.Extensions;
 
 namespace UniversityWebSite.UI
 {
@@ -47,11 +48,7 @@ namespace UniversityWebSite.UI
                     };
                 });
 
-            // services.AddScoped<IUserRepository, UserRepository>(); // 1 client 1 , (Singleton) butun client lar için 1 tane , (Transient)
-
-            // services.AddDbContext<>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            // services.AddDbContext<EfContext>();
+            services.AddBusinessRegistration(Configuration); // For Business Layer
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
