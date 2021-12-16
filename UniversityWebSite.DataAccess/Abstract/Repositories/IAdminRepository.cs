@@ -7,7 +7,7 @@ using UniversityWebSite.Entities;
 
 namespace UniversityWebSite.DataAccess.Abstract.Repositories
 {
-    public interface IAdminRepository : IGenericRepository<Admin>
+    public interface IAdminRepository : IGenericRepository<Admin> //
     {
 
         // Ekstradan ihtiyaç duyulan fonksiyonlar da burada yazılmalıdır.

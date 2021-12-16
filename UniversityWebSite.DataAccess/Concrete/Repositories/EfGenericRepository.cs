@@ -46,10 +46,10 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
 
         public virtual void Update(T entity)
         {
-            // cife sor burayı da, t ile updated tima nasıl ulasırız.
-            // sturtupa context meselesi
-            // önceki projede o generiği neden tekrar inherit aldıgımızı sor.
-            // bir de baseentity hasvalue olayını sor.
+            // cife söyle.
+            var convertedEntity = entity as BaseEntity;
+            convertedEntity.UpdatedTime = DateTime.Now;
+
             _setEntity.Update(entity);
             _dbContext.SaveChanges();
         }
