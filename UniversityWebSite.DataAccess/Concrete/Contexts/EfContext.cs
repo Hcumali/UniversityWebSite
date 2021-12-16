@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UniversityWebSite.Entities;
 
 namespace UniversityWebSite.DataAccess.Concrete.Contexts
 {
-    class EfContext:DbContext
+    public class EfContext:DbContext
     {
         public EfContext(DbContextOptions<EfContext> options):base(options)
         {
@@ -15,7 +16,7 @@ namespace UniversityWebSite.DataAccess.Concrete.Contexts
         }
 
         // Models
-        // public DbSet<User> Users { get; set; }
+        public DbSet<Admin> Admins { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
