@@ -12,7 +12,7 @@
 
             <form class="login100-form validate-form" action="Login?ReturnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="post">
                 <span class="login100-form-logo">
-                    <i class="zmdi zmdi-landscape"></i>
+                    <img src="~/assets/Login/dü_logo.jpg" width="130%" height="130%">
                 </span>
 
                 <span class="login100-form-title p-b-34 p-t-27">
@@ -34,7 +34,7 @@
                 @{
                     if (!string.IsNullOrEmpty(error))
                     {
-                        <h2 class="alert-danger" style="padding:30px">@error</h2>
+                        <h6 class="alert-danger" style="padding:10px; margin:25px">@error</h6>
                     }
                 }
 

@@ -13,28 +13,6 @@
     padding: 0px;
 }
 
-.sidenav h2 {
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-family: "Open Sans", sans-serif;
-}
-
-.sidenav h2:hover {
-    color: lightgreen;
-}
-
-.sidenav h3 {
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-family: "Open Sans", sans-serif;
-}
-
-.sidenav h3:hover {
-    color: lightgreen;
-}
-
 .sidenav a {
     text-decoration: none;
     color: white;
@@ -52,7 +30,12 @@
     cursor: pointer;
 }
 
-.sidenav #home:hover {
+.sidenav #dashboard {
+    width: 100%;
+    text-align: center;
+}
+
+.sidenav #home:hover, #dashboard:hover {
     background-color: #292c35;
     color: lightgreen;
     cursor: pointer;

@@ -1,22 +1,15 @@
 ﻿@{
     Layout = "_LayoutDashboard";
     ViewData["Title"] = "Yönetim Paneli";
+
+    string todayDate = DateTime.Now.ToString("d-M-yyyy");
+    string currentTime = DateTime.Now.ToString("HH:mm:ss tt");
+
 }
 
-
-
 <div id="contentIn">
-    <h1>this is a dashboard</h1>
-    <h2>Welcome @User.Identity.Name</h2>
-    <h2>AuthenticationType:  @User.Identity.AuthenticationType</h2>
-    <h2>IsAuthenticated:  @User.Identity.IsAuthenticated</h2>
-
-    <ul>
-        @{ foreach (var c in User.Claims)
-            {
-                <li>@c.Type: @c.Value</li>
-            }
-        }
-
-    </ul>
+    <h1>Hoşgeldin @User.Identity.Name</h1>
+    <div><span><strong>Tarih: @todayDate</strong></span></div>
+    <div><span><strong>Saat: @currentTime</strong></span></div>
+    <img src="~/assets/Login/dü_logo.jpg" width="50%" >
 </div>

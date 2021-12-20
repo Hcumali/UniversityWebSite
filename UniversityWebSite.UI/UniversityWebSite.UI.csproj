@@ -6,11 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\assets\Dashboard\**" />
+    <Content Remove="wwwroot\assets\Dashboard\**" />
+    <EmbeddedResource Remove="wwwroot\assets\Dashboard\**" />
+    <None Remove="wwwroot\assets\Dashboard\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.11" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\assets\Dashboard\" />
     <Folder Include="wwwroot\js\Dashboard\" />
   </ItemGroup>
 
