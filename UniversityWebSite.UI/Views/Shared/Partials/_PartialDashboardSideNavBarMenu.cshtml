@@ -2,52 +2,48 @@
     <!--Dashboard-->
     <div><a id="dashboard" asp-controller="Dashboard" asp-action="Index">Düzce Üniversitesi Yönetim Paneli</a></div>
 
-    <ul class="main-buttons">
-        <li>
+    <!--Content-->
+    <div class="main-buttons">
+        <div class="item">
             <i class="fa fa-asterisk fa-2x"></i>
-            Ana Sayfa
-            <ul class="hidden">
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Vizyonumuz</a></li>
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">İstatistikler</a></li>
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Hakkımızda</a></li>
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Anahtar Kelimeler</a></li>
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Tanıtım Filmleri</a></li>
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Görseller</a></li>
-                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">İletişim</a></li>
-            </ul>
-        </li>
+            <span>Ana Sayfa</span>
+            <div class="hidden">
+                <div id="blank"></div>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Vizyonumuz</a>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">İstatistikler</a>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Hakkımızda</a>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Anahtar Kelimeler</a>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Tanıtım Filmleri</a>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Görseller</a>
+                <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">İletişim</a>
+            </div>
+        </div>
 
-        <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Üniversitemiz</a>
-
-        <li>
+        <div class="item">
             <i class="fa fa-asterisk fa-2x"></i>
             <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Üniversitemiz</a>
-        </li>
+        </div>
 
-        <li>
+        <div class="item">
             <i class="fa fa-asterisk fa-2x"></i>
             <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="academic">Akademik</a>
+        </div>
 
-        </li>
-
-        <li>
+        <div class="item">
             <i class="fa fa-asterisk fa-2x"></i>
             <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="research">Araştırma</a>
+        </div>
 
-        </li>
-
-        <li>
+        <div class="item">
             <i class="fa fa-asterisk fa-2x"></i>
             <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="specialization">İhtisaslaşma</a>
+        </div>
 
-        </li>
-
-        <li>
+        <div class="item">
             <i class="fa fa-asterisk fa-2x"></i>
             <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="fastAccess">Hızlı Erişim</a>
-
-        </li>
-    </ul>
+        </div>
+    </div>
 
     <!--Home-->
     <div><a id="home" asp-controller="Home" asp-action="Index">Anasayfa</a></div>

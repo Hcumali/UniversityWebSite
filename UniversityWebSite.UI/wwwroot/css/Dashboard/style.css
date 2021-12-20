@@ -1,122 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
 
-.sidenav {
-    position: fixed;
-    width: 280px;
-    height: 100%;
-    background-color: #1e2027;
-}
-
-#content {
-    margin-left: 280px;
-    height: 100%;
-    padding: 0px;
-}
-
-.sidenav a {
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 21px;
-    font-weight: 600;
-    padding: 16px;
-}
-
-.sidenav .main-buttons a {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 0px;
-}
-
-.sidenav #logout:hover {
-    background-color: #292c35;
-    color: red;
-    cursor: pointer;
-}
-
-.sidenav #dashboard {
-    width: 100%;
-    text-align: center;
-}
-
-.sidenav #home:hover, #dashboard:hover {
-    background-color: #292c35;
-    color: lightgreen;
-    cursor: pointer;
-}
-
-.sidenav div {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.sidenav .main-buttons {
-    list-style-type: none;
-    margin: 25% 1% 25% 1%;
-    padding: 0;
-    color: #fff;
-}
-
-.sidenav .main-buttons li {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.sidenav .main-buttons > li {
-    padding: 16px 52px;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.sidenav .main-buttons > li .fa {
-    position: absolute;
-    left: 12px;
-    color: #414655;
-}
-
-.sidenav .main-buttons > li:hover, .sidenav .main-buttons > li:active, .sidenav .main-buttons > li:focus {
-    background-color: #292c35;
-    cursor: pointer;
-}
-
-.sidenav .main-buttons > li:hover .hidden, .sidenav .main-buttons > li:active .hidden, .sidenav .main-buttons > li:focus .hidden {
-    width: 228px;
-}
-
-.hidden {
-    width: 0;
-    height: 100%;
-    padding: 64px 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    list-style-type: none;
-    background-color: #292c35;
-    -moz-transition: 0.3s;
-    -o-transition: 0.3s;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-}
-
-.hidden li {
-    padding: 16px 4px;
-}
-
-.hidden li:hover, .hidden li:active, .hidden li:focus {
-    background-color: #323541;
-}
-
 html,
 body {
     height: 100%;
@@ -129,6 +12,12 @@ body {
     line-height: 30px;
 }
 
+#content {
+    margin-left: 280px;
+    height: 100%;
+    padding: 0px;
+}
+
 .contentIn {
     display: flex;
     align-items: center;
@@ -136,6 +25,128 @@ body {
     flex-direction: column;
 }
 
+.sidenav #logout:hover {
+    background-color: #292c35;
+    color: red;
+    cursor: pointer;
+}
+
+.sidenav #home:hover, #dashboard:hover {
+    background-color: #292c35;
+    color: lightgreen;
+    cursor: pointer;
+}
+
+.sidenav #home, #dashboard, #logout {
+    display: flex;
+    color: lightgray;
+    text-align: center;
+    justify-content:center;
+
+}
+
 .contentIn img{
     width: 50%;
 }
+
+.sidenav {
+    position: fixed;
+    width: 280px;
+    height: 100%;
+    background-color: #1e2027;
+}
+
+.sidenav .main-buttons{
+    display: flex;
+    flex-direction: column;
+    margin: 25% 1% 25% 1%;
+    padding: 0;
+}
+
+.sidenav a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 7%;
+}
+
+.sidenav .main-buttons a {
+    font-size: 18px;
+    padding-left: 0px;
+}
+
+.sidenav .main-buttons .hidden a{
+    padding: 8%;
+    font-size: 18px;
+}
+
+.sidenav .main-buttons a:hover {
+    background-color: coral;
+}
+
+.sidenav .main-buttons .item{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 7%;
+    cursor:pointer;
+}
+
+.sidenav .main-buttons .item i{
+    font-size: larger;
+    color: grey;
+    margin-left: 2%;
+    margin-right: 4%;
+}
+
+.sidenav .main-buttons .item:hover{
+    background-color: coral;
+}
+
+.hidden {
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    position: absolute;
+    background-color: #292c35;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav .main-buttons > div:hover .hidden, .sidenav .main-buttons > div:active .hidden, .sidenav .main-buttons > div:focus .hidden {
+    width: 228px;
+}
+
+.hidden a{
+    display:flex;
+    padding-left: 10%;
+}
+
+.sidenav .main-buttons .hidden a:hover {
+    background-color: mediumvioletred;
+}
+
+#blank{
+    width: 1%;
+    height: 15%;
+}
+
+
+
+
+
+
