@@ -7,69 +7,45 @@
             <i class="fa fa-asterisk fa-2x"></i>
             Ana Sayfa
             <ul class="hidden">
-                <li>Vizyonumuz</li>
-                <li>İstatistikler</li>
-                <li>Hakkımızda</li>
-                <li>Anahtar Kelimeler</li>
-                <li>Tanıtım Filmleri</li>
-                <li>Görseller</li>
-                <li>İletişim</li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Vizyonumuz</a></li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">İstatistikler</a></li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Hakkımızda</a></li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Anahtar Kelimeler</a></li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Tanıtım Filmleri</a></li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Görseller</a></li>
+                <li><a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">İletişim</a></li>
             </ul>
+        </li>
+
+        <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Üniversitemiz</a>
+
+        <li>
+            <i class="fa fa-asterisk fa-2x"></i>
+            <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="university">Üniversitemiz</a>
         </li>
 
         <li>
             <i class="fa fa-asterisk fa-2x"></i>
-            Üniversitemiz
-            <ul class="hidden">
-                <li>Kategori Ekle</li>
-                <li>Kategori Sil</li>
-                <li>Kategori Güncelle</li>
-                <li>Kategori Listele</li>
-            </ul>
+            <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="academic">Akademik</a>
+
         </li>
 
         <li>
             <i class="fa fa-asterisk fa-2x"></i>
-            Akademik
-            <ul class="hidden">
-                <li>Kategori Ekle</li>
-                <li>Kategori Sil</li>
-                <li>Kategori Güncelle</li>
-                <li>Kategori Listele</li>
-            </ul>
+            <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="research">Araştırma</a>
+
         </li>
 
         <li>
             <i class="fa fa-asterisk fa-2x"></i>
-            Araştırma
-            <ul class="hidden">
-                <li>Kategori Ekle</li>
-                <li>Kategori Sil</li>
-                <li>Kategori Güncelle</li>
-                <li>Kategori Listele</li>
-            </ul>
+            <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="specialization">İhtisaslaşma</a>
+
         </li>
 
         <li>
             <i class="fa fa-asterisk fa-2x"></i>
-            İhtisaslaşma
-            <ul class="hidden">
-                <li>Kategori Ekle</li>
-                <li>Kategori Sil</li>
-                <li>Kategori Güncelle</li>
-                <li>Kategori Listele</li>
-            </ul>
-        </li>
+            <a asp-controller="Dashboard" asp-action="ReadCategory" asp-route-page="fastAccess">Hızlı Erişim</a>
 
-        <li>
-            <i class="fa fa-asterisk fa-2x"></i>
-            Hızlı Erişim
-            <ul class="hidden">
-                <li>Kategori Ekle</li>
-                <li>Kategori Sil</li>
-                <li>Kategori Güncelle</li>
-                <li>Kategori Listele</li>
-            </ul>
         </li>
     </ul>
 

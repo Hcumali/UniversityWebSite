@@ -1,11 +1,17 @@
+img {
+	width: 130%;
+	height: 130%;
+}
 
+.container-login100 {
+	background-image: url('../../assets/Login/bg-01.jpg');
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
-
 @font-face {
-  font-family: Poppins-Regular;
-  src: url('../../fonts/poppins/Poppins-Regular.ttf'); 
+	font-family: Poppins-Regular;
+	src: url('../../fonts/poppins/Poppins-Regular.ttf');
 }
 
 @font-face {

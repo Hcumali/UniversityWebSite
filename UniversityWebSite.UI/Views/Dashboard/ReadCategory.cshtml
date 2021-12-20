@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "_LayoutDashboard";
+    ViewData["Title"] = "Listele";
+    var pageName = ViewData["pageName"];
+}
+
+@{
+    switch (pageName)
+    {
+        case "university":
+            <h1>universite başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "academic":
+            <h1>akademik başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "research":
+            <h1>araştırma başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "specialization":
+            <h1>ihtisaslaşma başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "fastAccess":
+            <h1>hızlı erişim başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        default:
+            <h1>Error</h1>
+            break;
+    }
+
+}

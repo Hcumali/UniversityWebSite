@@ -4,12 +4,26 @@
 
     string todayDate = DateTime.Now.ToString("d-M-yyyy");
     string currentTime = DateTime.Now.ToString("HH:mm:ss tt");
-
 }
 
-<div id="contentIn">
+<div class="contentIn">
     <h1>Hoşgeldin @User.Identity.Name</h1>
     <div><span><strong>Tarih: @todayDate</strong></span></div>
-    <div><span><strong>Saat: @currentTime</strong></span></div>
-    <img src="~/assets/Login/dü_logo.jpg" width="50%" >
+    <div><span><strong>Saat: <span id="span"></span></strong></span></div>
+    <img src="~/assets/Login/dü_logo.jpg" >
 </div>
+
+<script>
+    var span = document.getElementById('span');
+
+    function time() {
+        var d = new Date();
+        var s = d.getSeconds();
+        var m = d.getMinutes();
+        var h = d.getHours();
+        span.textContent =
+            ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
+    }
+
+    setInterval(time, 1000);
+</script>

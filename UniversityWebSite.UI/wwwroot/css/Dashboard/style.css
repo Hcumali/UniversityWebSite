@@ -24,6 +24,15 @@
     padding: 16px;
 }
 
+.sidenav .main-buttons a {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0px;
+}
+
 .sidenav #logout:hover {
     background-color: #292c35;
     color: red;
@@ -101,7 +110,7 @@
 }
 
 .hidden li {
-    padding: 16px 24px;
+    padding: 16px 4px;
 }
 
 .hidden li:hover, .hidden li:active, .hidden li:focus {
@@ -120,9 +129,13 @@ body {
     line-height: 30px;
 }
 
-#contentIn {
+.contentIn {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.contentIn img{
+    width: 50%;
 }

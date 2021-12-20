@@ -16,6 +16,23 @@ namespace UniversityWebSite.UI.Controllers
             return View();
         }
 
+        public IActionResult ReadCategory(string page)
+        {
+            ViewData["pageName"] = page;
+            return View();
+        }
+
+        public IActionResult CreateCategory()
+        {
+            return View();
+        }
+
+        public IActionResult UpdateCategory()
+        {
+            return View();
+        }
+
+
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
