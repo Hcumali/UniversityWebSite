@@ -11,6 +11,10 @@ namespace UniversityWebSite.Business.Extensions
         {
             // services.AddScoped<IUserRepository, UserRepository>(); // 1 client 1 , (Singleton) butun client lar için 1 tane , (Transient)
 
+            // services.AddDbContext<>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            // services.AddDbContext<EfContext>();
+
             services.AddDbContext<EfContext>(options =>
                     options.UseSqlServer(configuration.GetConnectionString(configuration.GetConnectionString("DefaultConnection"))));
             

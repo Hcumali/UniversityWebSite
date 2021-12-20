@@ -48,7 +48,7 @@ namespace UniversityWebSite.UI
                     };
                 });
 
-            services.AddBusinessRegistration(Configuration); // For Business Layer
+            services.AddBusinessRegistration(Configuration); // For Business Layer - Extansion
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
