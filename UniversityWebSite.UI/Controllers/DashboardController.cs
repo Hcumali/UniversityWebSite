@@ -16,20 +16,46 @@ namespace UniversityWebSite.UI.Controllers
             return View();
         }
 
+        [HttpGet("read")]
         public IActionResult ReadCategory(string page)
         {
             ViewData["pageName"] = page;
             return View();
         }
 
-        public IActionResult CreateCategory()
+        [HttpGet("create")]
+        public IActionResult CreateCategory(string page)
+        {
+            ViewData["pageName"] = page;
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost("create")]
+        public IActionResult CreateCategory(int model)
         {
             return View();
         }
 
-        public IActionResult UpdateCategory()
+        [HttpGet("update")]
+        public IActionResult UpdateCategory(string page)
+        {
+            ViewData["pageName"] = page;
+            return View();
+        }
+
+        [ValidateAntiForgeryToken]
+        [HttpPost("update")]
+        public IActionResult UpdateCategory(int test)
         {
             return View();
+        }
+
+        [HttpPost("delete")]
+        public IActionResult DeleteCategory(int id)
+        {
+            // delete process
+            return View("read");
         }
 
 

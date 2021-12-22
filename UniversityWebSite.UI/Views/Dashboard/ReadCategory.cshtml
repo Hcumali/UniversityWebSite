@@ -4,39 +4,56 @@
     var pageName = ViewData["pageName"];
 }
 
-<div class="contentIn">
-    @{
-        switch (pageName)
-        {
-            case "university":
-                <h1>universite başlığına ait kategoriler</h1>
-                <!--View Component-->
-                break;
+@{
+    switch (pageName)
+    {
+        case "home-about":
+            @await Component.InvokeAsync("HomeAboutPage");
+            break;
 
-            case "academic":
-                <h1>akademik başlığına ait kategoriler</h1>
-                <!--View Component-->
-                break;
+        case "home-statistics":
+            @await Component.InvokeAsync("HomeStatisticsPage");
+            break;
 
-            case "research":
-                <h1>araştırma başlığına ait kategoriler</h1>
-                <!--View Component-->
-                break;
+        case "home-keywords":
+            @await Component.InvokeAsync("HomeKeywordsPage");
+            break;
 
-            case "specialization":
-                <h1>ihtisaslaşma başlığına ait kategoriler</h1>
-                <!--View Component-->
-                break;
+        case "home-videos":
+            @await Component.InvokeAsync("HomeVideosPage");
+            break;
 
-            case "fastAccess":
-                <h1>hızlı erişim başlığına ait kategoriler</h1>
-                <!--View Component-->
-                break;
+        case "home-pictures":
+            @await Component.InvokeAsync("HomePicturesPage");
+            break;
 
-            default:
-                <h1>Error</h1>
-                break;
-        }
+        case "home-contact":
+            @await Component.InvokeAsync("HomeContactPage");
+            break;
 
+
+        case "university":
+            @await Component.InvokeAsync("UniversityPage");
+            break;
+
+        case "academic":
+            @await Component.InvokeAsync("AcademicPage");
+            break;
+
+        case "research":
+            @await Component.InvokeAsync("ResearchPage");
+            break;
+
+        case "specialization":
+            @await Component.InvokeAsync("SpecializationPage");
+            break;
+
+        case "fastAccess":
+            @await Component.InvokeAsync("FastAccessPage");
+            break;
+
+        default:
+            <h1>Error</h1>
+            break;
     }
-</div>
+}

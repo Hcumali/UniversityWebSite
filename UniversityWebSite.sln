@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityWebSite.Business"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityWebSite.Entities", "UniversityWebSite.Entities\UniversityWebSite.Entities.csproj", "{DEAEA822-E88D-4FE0-8263-0D6F9A0E8CC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityWebSite.Core", "UniversityWebSite.Core\UniversityWebSite.Core.csproj", "{37328837-6CF6-4191-9E5D-951793FE38D1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{DEAEA822-E88D-4FE0-8263-0D6F9A0E8CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEAEA822-E88D-4FE0-8263-0D6F9A0E8CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEAEA822-E88D-4FE0-8263-0D6F9A0E8CC2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37328837-6CF6-4191-9E5D-951793FE38D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37328837-6CF6-4191-9E5D-951793FE38D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37328837-6CF6-4191-9E5D-951793FE38D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37328837-6CF6-4191-9E5D-951793FE38D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

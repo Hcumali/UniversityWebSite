@@ -6,7 +6,8 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using UniversityWebSite.DataAccess.Abstract;
-using UniversityWebSite.Entities;
+using UniversityWebSite.Entities.Abstract;
+using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Concrete.Repositories
 {
@@ -46,7 +47,6 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
 
         public virtual void Update(T entity)
         {
-            // cife söyle.
             var convertedEntity = entity as BaseEntity;
             convertedEntity.UpdatedTime = DateTime.Now;
 

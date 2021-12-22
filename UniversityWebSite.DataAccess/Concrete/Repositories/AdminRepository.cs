@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UniversityWebSite.DataAccess.Concrete.Contexts;
 using UniversityWebSite.DataAccess.Abstract.Repositories;
-using UniversityWebSite.Entities;
+using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Concrete.Repositories
 {
@@ -21,7 +21,7 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
         public override void Update(Admin entity)
         {
             entity.UpdatedTime = DateTime.Now;
-            entity.Name = "Hüseyin";
+            entity.Username = "Hüseyin";
             _context.Set<Admin>().Update(entity);
             _context.SaveChanges();
         }

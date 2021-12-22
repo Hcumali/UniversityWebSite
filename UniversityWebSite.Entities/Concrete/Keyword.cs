@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniversityWebSite.Entities
+namespace UniversityWebSite.Entities.Concrete
 {
-    public class Admin:BaseEntity
+    public class Keyword
     {
-        public string Name { get; set; }
+        public string Title { get; set; }
     }
 }

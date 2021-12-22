@@ -15,8 +15,7 @@ namespace UniversityWebSite.Business.Extensions
 
             // services.AddDbContext<EfContext>();
 
-            services.AddDbContext<EfContext>(options =>
-                    options.UseSqlServer(configuration.GetConnectionString(configuration.GetConnectionString("DefaultConnection"))));
+            services.AddDbContext<EfContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             
         }
 

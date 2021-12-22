@@ -1,9 +1,69 @@
 ﻿@{
     Layout = "_LayoutDashboard";
     ViewData["Title"] = "Ekle";
+    var pageName = ViewData["pageName"];
 }
 
+@{
+    switch (pageName)
+    {
+        case "home-vision":
+            <h1>Ekle vizyonumuz</h1>
+            <!--View Component-->
+            break;
+        case "home-statistics":
+            <h1>Ekle istatistikler</h1>
+            <!--View Component-->
+            break;
+        case "home-about":
+            <h1>Ekle hakkında</h1>
+            <!--View Component-->
+            break;
+        case "home-keywords":
+            <h1>Ekle anahtar kelimeler</h1>
+            <!--View Component-->
+            break;
+        case "home-videos":
+            <h1>Ekle videolar</h1>
+            <!--View Component-->
+            break;
+        case "home-pictures":
+            <h1>Ekle resimler</h1>
+            <!--View Component-->
+            break;
+        case "home-contact":
+            <h1>Ekle iletişim</h1>
+            <!--View Component-->
+            break;
 
-<div class="contentIn">
-    create
-</div>
+
+        case "university":
+            <h1>Ekle universite başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "academic":
+            <h1>Ekle akademik başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "research":
+            <h1>Ekle araştırma başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "specialization":
+            <h1>Ekle ihtisaslaşma başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        case "fastAccess":
+            <h1>Ekle hızlı erişim başlığına ait kategoriler</h1>
+            <!--View Component-->
+            break;
+
+        default:
+            <h1>Error</h1>
+            break;
+    }
+}

@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewComponents\" />
     <Folder Include="wwwroot\js\Dashboard\" />
   </ItemGroup>
 
