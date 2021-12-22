@@ -7,9 +7,8 @@ using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Abstract.Repositories
 {
-    public interface IAdminRepository : IGenericRepository<Admin> 
+    public interface IContactRepository : IGenericRepository<Contact>
     {
-        // Extra Functions
-        // DTO's
+
     }
 }

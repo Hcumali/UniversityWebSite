@@ -22,34 +22,34 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
             _setEntity = _dbContext.Set<T>();
         }
 
+
         public virtual void Create(T entity)
         {
-            //_dbContext.Add(entity);  -- Alternative
-
             _setEntity.Add(entity);
             _dbContext.SaveChanges();
         }
 
         public virtual void Delete(int id)
         {
-            throw new NotImplementedException();
+            var willDelete = _setEntity.Find(id);
+            _setEntity.Remove(willDelete);
+            _dbContext.SaveChanges();
         }
 
         public virtual T Read(int id)
         {
-            throw new NotImplementedException();
+            return _setEntity.Find(id);
         }
 
         public virtual IEnumerable<T> Read(Expression<Func<T, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return _setEntity.ToList();
         }
 
         public virtual void Update(T entity)
         {
             var convertedEntity = entity as BaseEntity;
             convertedEntity.UpdatedTime = DateTime.Now;
-
             _setEntity.Update(entity);
             _dbContext.SaveChanges();
         }

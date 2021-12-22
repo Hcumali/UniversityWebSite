@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UniversityWebSite.Entities.Concrete
 {
-    public class AboutUs : BaseEntity
+    public class About : BaseEntity
     {
         public string Paragraph { get; set; }
 

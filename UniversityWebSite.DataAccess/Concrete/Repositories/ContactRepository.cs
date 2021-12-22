@@ -9,10 +9,10 @@ using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Concrete.Repositories
 {
-    public class AdminRepository : EfGenericRepository<Admin>, IAdminRepository
+    public class ContactRepository : EfGenericRepository<Contact>, IContactRepository
     {
         EfContext _context;
-        public AdminRepository(EfContext context) : base(context)
+        public ContactRepository(EfContext context) : base(context)
         {
             _context = context;
         }

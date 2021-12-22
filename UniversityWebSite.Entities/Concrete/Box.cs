@@ -12,8 +12,8 @@ namespace UniversityWebSite.Entities.Concrete
         public string Header { get; set; }
         public string Text { get; set; }
 
-        public int? AboutUsId { get; set; }
-        [ForeignKey("AboutUsId")]
-        public virtual AboutUs AboutUs { get; set; }
+        public int? AboutId { get; set; }
+        [ForeignKey("AboutId")]
+        public virtual About About { get; set; }
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniversityWebSite.Entities.Concrete
+namespace UniversityWebSite.DataAccess.Concrete.Mappings
 {
-    public class Keyword : BaseEntity
+    class testMapping
     {
-        public string Title { get; set; }
     }
 }
