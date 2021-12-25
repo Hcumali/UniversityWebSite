@@ -69,7 +69,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTime(2021, 12, 25, 5, 8, 22, 611, DateTimeKind.Local).AddTicks(6800),
+                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 596, DateTimeKind.Local).AddTicks(950),
                             Password = "123456a",
                             Username = "admin"
                         });
@@ -115,6 +115,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NavBarHeader")
@@ -126,6 +127,29 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4126),
+                            Name = "Düzce",
+                            NavBarHeader = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4506),
+                            Name = "Kuruluş",
+                            NavBarHeader = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4510),
+                            Name = "Sayılarla DÜ",
+                            NavBarHeader = 0
+                        });
                 });
 
             modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Contact", b =>
@@ -243,8 +267,8 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedTime")
                         .HasColumnType("datetime2");
@@ -254,6 +278,22 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Subtitles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 2,
+                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4802),
+                            Name = "subtitle1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 2,
+                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(5110),
+                            Name = "subtitle2"
+                        });
                 });
 
             modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Video", b =>

@@ -5,14 +5,26 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
+using UniversityWebSite.Entities.Concrete;
+using UniversityWebSite.UI.Models;
 
 namespace UniversityWebSite.UI.Controllers
 {
     public class HomeController : Controller
     {
+        ICategoryService _categoryService;
+        public HomeController(ICategoryService categoryService)
+        {
+            _categoryService = categoryService;
+        }
+
+
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<Category> categories = _categoryService.GetAllCategory();
+
+            return View(categories);
         }
 
         public IActionResult Error()

@@ -13,7 +13,8 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-
+            builder.Property(x => x.NavBarHeader).IsRequired();
+            builder.Property(x => x.Name).IsRequired();
         }
     }
 }

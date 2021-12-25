@@ -35,8 +35,6 @@ namespace UniversityWebSite.DataAccess.Concrete.Contexts
             base.OnModelCreating(modelBuilder);
             DataInitializer.Seed(modelBuilder);
 
-            modelBuilder.Entity<Admin>().HasData(new Admin() { Id = 1, Username = "admin", Password = "123456a" });
-
             modelBuilder.ApplyConfiguration(new AdminConfig());
             modelBuilder.ApplyConfiguration(new CategoryConfig());
             modelBuilder.ApplyConfiguration(new BoxConfig());

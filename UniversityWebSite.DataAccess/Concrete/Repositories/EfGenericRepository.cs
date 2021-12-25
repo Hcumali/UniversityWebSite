@@ -46,7 +46,6 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
             return filter == null
                 ? _setEntity.ToList()
                 : _setEntity.Where(filter).ToList();
-
         }
 
         public virtual void Update(T entity)

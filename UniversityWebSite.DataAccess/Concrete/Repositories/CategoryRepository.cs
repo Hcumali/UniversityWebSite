@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using UniversityWebSite.DataAccess.Concrete.Contexts;
 using UniversityWebSite.DataAccess.Abstract.Repositories;
 using UniversityWebSite.Entities.Concrete;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace UniversityWebSite.DataAccess.Concrete.Repositories
 {
@@ -17,7 +19,11 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
             _context = context;
         }
 
-        // Extra Functions from the this interface
-        // override functions
+        public override IEnumerable<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        {
+            return filter == null
+                ? _context.Set<Category>().Include(x => x.Subtitles).ToList()
+                : _context.Set<Category>().Where(filter).Include(x => x.Subtitles).ToList();
+        }
     }
 }

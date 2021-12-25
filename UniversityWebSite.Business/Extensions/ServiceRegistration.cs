@@ -26,6 +26,8 @@ namespace UniversityWebSite.Business.Extensions
 
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IAdminService, AdminManager>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ICategoryService, CategoryManager>();
             
         }
 

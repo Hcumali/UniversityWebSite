@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.UI.Models
 {
-    public class temp
+    public class HomePageViewModel
     {
-        public int MyProperty { get; set; }
+        public IEnumerable<Category> categories { get; set; }
     }
 }

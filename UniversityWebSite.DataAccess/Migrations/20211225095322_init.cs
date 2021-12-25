@@ -45,7 +45,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NavBarHeader = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -165,7 +165,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: true),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -180,6 +180,31 @@ namespace UniversityWebSite.DataAccess.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Admins",
+                columns: new[] { "Id", "CreatedTime", "Password", "UpdatedTime", "Username" },
+                values: new object[] { 1, new DateTime(2021, 12, 25, 12, 53, 21, 596, DateTimeKind.Local).AddTicks(950), "123456a", null, "admin" });
+
+            migrationBuilder.InsertData(
+                table: "Categories",
+                columns: new[] { "Id", "CreatedTime", "Name", "NavBarHeader", "UpdatedTime" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4126), "Düzce", 0, null },
+                    { 2, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4506), "Kuruluş", 0, null },
+                    { 3, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4510), "Sayılarla DÜ", 0, null }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Subtitles",
+                columns: new[] { "Id", "CategoryId", "CreatedTime", "Name", "UpdatedTime" },
+                values: new object[] { 1, 2, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4802), "subtitle1", null });
+
+            migrationBuilder.InsertData(
+                table: "Subtitles",
+                columns: new[] { "Id", "CategoryId", "CreatedTime", "Name", "UpdatedTime" },
+                values: new object[] { 2, 2, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(5110), "subtitle2", null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Boxes_AboutId",

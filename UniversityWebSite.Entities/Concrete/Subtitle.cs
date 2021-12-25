@@ -8,7 +8,7 @@ namespace UniversityWebSite.Entities.Concrete
 {
     public class Subtitle : BaseEntity
     {
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         public int? CategoryId { get; set; }
         public virtual Category Category { get; set; }
