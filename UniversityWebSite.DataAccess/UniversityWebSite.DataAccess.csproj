@@ -5,8 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Concrete\Mappings\YMap\" />
-    <Folder Include="Concrete\Mappings\XMap\" />
+    <Compile Remove="Concrete\Mappings\XMap\**" />
+    <Compile Remove="Concrete\Mappings\YMap\**" />
+    <EmbeddedResource Remove="Concrete\Mappings\XMap\**" />
+    <EmbeddedResource Remove="Concrete\Mappings\YMap\**" />
+    <None Remove="Concrete\Mappings\XMap\**" />
+    <None Remove="Concrete\Mappings\YMap\**" />
   </ItemGroup>
 
   <ItemGroup>

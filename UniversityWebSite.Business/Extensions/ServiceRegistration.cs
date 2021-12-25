@@ -2,6 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UniversityWebSite.DataAccess.Concrete.Contexts;
+using UniversityWebSite.DataAccess.Abstract.Repositories;
+using UniversityWebSite.DataAccess.Concrete.Repositories;
+using UniversityWebSite.Business.Abstract;
+using UniversityWebSite.Business.Concrete;
 
 namespace UniversityWebSite.Business.Extensions
 {
@@ -9,13 +13,11 @@ namespace UniversityWebSite.Business.Extensions
     {
         public static void AddBusinessRegistration(this IServiceCollection services,IConfiguration configuration)
         {
-            // services.AddScoped<IUserRepository, UserRepository>(); // 1 client 1 , (Singleton) butun client lar için 1 tane , (Transient)
+            services.AddDbContext<EfContext>(options => 
+                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            // services.AddDbContext<>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
-            // services.AddDbContext<EfContext>();
-
-            services.AddDbContext<EfContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IAdminRepository, AdminRepository>();
+            services.AddScoped<IAdminService, AdminManager>();
             
         }
 

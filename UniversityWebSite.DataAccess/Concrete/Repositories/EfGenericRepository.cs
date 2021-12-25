@@ -36,14 +36,17 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
             _dbContext.SaveChanges();
         }
 
-        public virtual T Read(int id)
+        public virtual T Get(Expression<Func<T, bool>> filter)
         {
-            return _setEntity.Find(id);
+            return _setEntity.SingleOrDefault(filter);
         }
 
-        public virtual IEnumerable<T> Read(Expression<Func<T, bool>> filter = null)
+        public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return _setEntity.ToList();
+            return filter == null
+                ? _setEntity.ToList()
+                : _setEntity.Where(filter).ToList();
+
         }
 
         public virtual void Update(T entity)

@@ -5,11 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.Controllers
 {
     public class AccountController : Controller
     {
+        IAdminService _adminService;
+        public AccountController(IAdminService adminService)
+        {
+            _adminService = adminService;
+        }
+
+
         [HttpGet("Login")]
         public IActionResult Authenticate(string returnUrl)
         {
@@ -34,6 +42,8 @@ namespace UniversityWebSite.UI.Controllers
         public async Task<IActionResult> Validate(string username, string password, string returnUrl)
         {
             ViewData["ReturnUrl"] = returnUrl;
+
+            _adminService.IsThereAdmin(username, password);
 
             // This will coming from the database 
             if (username == "ali" && password == "123456")

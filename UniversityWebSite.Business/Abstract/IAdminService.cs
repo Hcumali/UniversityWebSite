@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace UniversityWebSite.Business.Abstract
 {
-    class Class1
+    public interface IAdminService
     {
+        bool IsThereAdmin(string username, string password);
     }
 }

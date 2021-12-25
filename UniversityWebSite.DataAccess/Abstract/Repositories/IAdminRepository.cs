@@ -9,7 +9,6 @@ namespace UniversityWebSite.DataAccess.Abstract.Repositories
 {
     public interface IAdminRepository : IGenericRepository<Admin> 
     {
-        // Extra Functions
-        // DTO's
+
     }
 }

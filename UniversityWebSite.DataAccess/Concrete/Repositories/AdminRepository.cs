@@ -16,8 +16,5 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
         {
             _context = context;
         }
-
-        // Extra Functions from the this interface
-        // override functions
     }
 }

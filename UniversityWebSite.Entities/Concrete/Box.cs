@@ -13,7 +13,6 @@ namespace UniversityWebSite.Entities.Concrete
         public string Text { get; set; }
 
         public int? AboutId { get; set; }
-        [ForeignKey("AboutId")]
         public virtual About About { get; set; }
     }
 }

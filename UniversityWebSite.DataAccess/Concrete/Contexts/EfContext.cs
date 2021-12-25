@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UniversityWebSite.Entities.Concrete;
+using UniversityWebSite.DataAccess.Concrete.Mappings;
 
 namespace UniversityWebSite.DataAccess.Concrete.Contexts
 {
@@ -31,7 +32,9 @@ namespace UniversityWebSite.DataAccess.Concrete.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            //Fluent APIs
+            modelBuilder.ApplyConfiguration(new AdminConfig());
+            modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new BoxConfig());
         }
     }
 }

@@ -12,8 +12,8 @@ namespace UniversityWebSite.DataAccess.Abstract
     {
         // CRUD
         void Create(T entity);
-        T Read(int id);
-        IEnumerable<T> Read(Expression<Func<T,bool>> filter = null); // Expression ensures to use Lambda Function.
+        T Get(Expression<Func<T, bool>> filter);
+        IEnumerable<T> GetAll(Expression<Func<T,bool>> filter = null); // Expression ensures to use Lambda Function.
         void Update(T entity);
         void Delete(int id);
     }
