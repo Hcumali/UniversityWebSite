@@ -11,6 +11,7 @@ namespace UniversityWebSite.Entities.Concrete
     {
         public NavBarHeader NavBarHeader { get; set; }
         public string Name { get; set; }
-        public List<string> Subtitle { get; set; }
+
+        public virtual List<Subtitle> Subtitles { get; set; }
     }
 }

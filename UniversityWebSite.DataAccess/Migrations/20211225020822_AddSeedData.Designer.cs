@@ -10,8 +10,8 @@ using UniversityWebSite.DataAccess.Concrete.Contexts;
 namespace UniversityWebSite.DataAccess.Migrations
 {
     [DbContext(typeof(EfContext))]
-    [Migration("20211225003849_init")]
-    partial class init
+    [Migration("20211225020822_AddSeedData")]
+    partial class AddSeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,6 +66,15 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admins");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedTime = new DateTime(2021, 12, 25, 5, 8, 22, 611, DateTimeKind.Local).AddTicks(6800),
+                            Password = "123456a",
+                            Username = "admin"
+                        });
                 });
 
             modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Box", b =>
@@ -223,6 +232,32 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.ToTable("Statistics");
                 });
 
+            modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Subtitle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Name")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Subtitles");
+                });
+
             modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Video", b =>
                 {
                     b.Property<int>("Id")
@@ -256,9 +291,23 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.Navigation("About");
                 });
 
+            modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Subtitle", b =>
+                {
+                    b.HasOne("UniversityWebSite.Entities.Concrete.Category", "Category")
+                        .WithMany("Subtitles")
+                        .HasForeignKey("CategoryId");
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("UniversityWebSite.Entities.Concrete.About", b =>
                 {
                     b.Navigation("Boxes");
+                });
+
+            modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Category", b =>
+                {
+                    b.Navigation("Subtitles");
                 });
 #pragma warning restore 612, 618
         }

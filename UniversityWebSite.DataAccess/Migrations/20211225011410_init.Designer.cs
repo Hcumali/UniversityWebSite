@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityWebSite.DataAccess.Concrete.Contexts;
 
 namespace UniversityWebSite.DataAccess.Migrations
 {
     [DbContext(typeof(EfContext))]
-    partial class EfContextModelSnapshot : ModelSnapshot
+    [Migration("20211225011410_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,15 +66,6 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Admins");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedTime = new DateTime(2021, 12, 25, 5, 8, 22, 611, DateTimeKind.Local).AddTicks(6800),
-                            Password = "123456a",
-                            Username = "admin"
-                        });
                 });
 
             modelBuilder.Entity("UniversityWebSite.Entities.Concrete.Box", b =>

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace UniversityWebSite.Entities.Concrete
 {
-    public class About : BaseEntity
+    public class Subtitle : BaseEntity
     {
-        public string Paragraph { get; set; }
+        public int Name { get; set; }
 
-        public virtual List<Box> Boxes { get; set; }
+        public int? CategoryId { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

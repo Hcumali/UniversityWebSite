@@ -9,11 +9,11 @@ using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Concrete.Mappings
 {
-    class CategoryConfig : IEntityTypeConfiguration<Category>
+    public class SubtitleConfig : IEntityTypeConfiguration<Subtitle>
     {
-        public void Configure(EntityTypeBuilder<Category> builder)
+        public void Configure(EntityTypeBuilder<Subtitle> builder)
         {
-
+            builder.HasOne(x => x.Category).WithMany(x => x.Subtitles).HasForeignKey(x => x.CategoryId);
         }
     }
 }

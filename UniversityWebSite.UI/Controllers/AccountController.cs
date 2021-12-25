@@ -43,10 +43,9 @@ namespace UniversityWebSite.UI.Controllers
         {
             ViewData["ReturnUrl"] = returnUrl;
 
-            _adminService.IsThereAdmin(username, password);
+            var result = _adminService.IsThereAdmin(username, password);
 
-            // This will coming from the database 
-            if (username == "ali" && password == "123456")
+            if (result)
             {
                 var userClaims = new List<Claim>()
                 {
@@ -62,9 +61,11 @@ namespace UniversityWebSite.UI.Controllers
 
                 return Redirect(returnUrl);
             }
-
-            TempData["Error"] = "Error. Username or Password is invalid.";
-            return View("Authenticate");
+            else
+            {
+                TempData["Error"] = "Error. Username or Password is invalid.";
+                return View("Authenticate");
+            }
         }
     }
 }

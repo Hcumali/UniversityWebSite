@@ -13,8 +13,16 @@ namespace UniversityWebSite.Business.Extensions
     {
         public static void AddBusinessRegistration(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddDbContext<EfContext>(options => 
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<EfContext>(options => options.UseSqlServer(connectionString));
+
+            var optionsBuilder = new DbContextOptionsBuilder<EfContext>();
+            optionsBuilder.UseSqlServer(connectionString);
+            var context = new EfContext(optionsBuilder.Options);
+            using (context)
+            {
+                context.Database.Migrate();
+            }
 
             services.AddScoped<IAdminRepository, AdminRepository>();
             services.AddScoped<IAdminService, AdminManager>();

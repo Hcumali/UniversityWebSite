@@ -159,10 +159,37 @@ namespace UniversityWebSite.DataAccess.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Subtitles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Subtitles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Subtitles_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Boxes_AboutId",
                 table: "Boxes",
                 column: "AboutId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Subtitles_CategoryId",
+                table: "Subtitles",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -172,9 +199,6 @@ namespace UniversityWebSite.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Boxes");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Contacts");
@@ -189,10 +213,16 @@ namespace UniversityWebSite.DataAccess.Migrations
                 name: "Statistics");
 
             migrationBuilder.DropTable(
+                name: "Subtitles");
+
+            migrationBuilder.DropTable(
                 name: "Videos");
 
             migrationBuilder.DropTable(
                 name: "Abouts");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
         }
     }
 }

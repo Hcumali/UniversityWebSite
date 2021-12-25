@@ -20,8 +20,12 @@ namespace UniversityWebSite.Business.Concrete
 
         public bool IsThereAdmin(string username, string password)
         {
-            _adminRepository.Get(x => x.Username == username && x.Password == password);
-            return false;
+            var isThereAdmin = _adminRepository.Get(x => x.Username == username && x.Password == password);
+            if (isThereAdmin != null)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 }
