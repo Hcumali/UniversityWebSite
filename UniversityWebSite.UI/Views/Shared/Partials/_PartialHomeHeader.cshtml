@@ -10,25 +10,25 @@
                     <a href="#"><span>Üniversitemiz</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @{
-                            for (int i = 0; i < Model.Count; i++)
+                            for (int i = 0; i < Model.categories.Count; i++)
                             {
-                                if (Model[i].NavBarHeader == NavBarHeader.University)
+                                if (Model.categories[i].NavBarHeader == NavBarHeader.University)
                                 {
-                                    if (Model[i].Subtitles.Count != 0)
+                                    if (Model.categories[i].Subtitles.Count != 0)
                                     {
                                         <li class="dropdown">
-                                            <a href="#"><span>@Model[i].Name</span> <i class="bi bi-chevron-right"></i></a>
+                                            <a href="#"><span>@Model.categories[i].Name</span> <i class="bi bi-chevron-right"></i></a>
                                             <ul>
-                                                @for (int j = 0; j < Model[i].Subtitles.Count; j++)
+                                                @for (int j = 0; j < Model.categories[i].Subtitles.Count; j++)
                                                 {
-                                                    <li><a href="#">@Model[i].Subtitles[j].Name</a></li>
+                                                    <li><a href="#">@Model.categories[i].Subtitles[j].Name</a></li>
                                                 }
                                             </ul>
                                         </li>
                                     }
                                     else
                                     {
-                                        <li><a href="#">@Model[i].Name</a></li>
+                                        <li><a href="#">@Model.categories[i].Name</a></li>
                                     }
                                 }
                             }
@@ -40,25 +40,25 @@
                     <a href="#"><span>Akademik</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @{
-                            for (int i = 0; i < Model.Count; i++)
+                            for (int i = 0; i < Model.categories.Count; i++)
                             {
-                                if (Model[i].NavBarHeader == NavBarHeader.Academic)
+                                if (Model.categories[i].NavBarHeader == NavBarHeader.Academic)
                                 {
-                                    if (Model[i].Subtitles.Count != 0)
+                                    if (Model.categories[i].Subtitles.Count != 0)
                                     {
                                         <li class="dropdown">
-                                            <a href="#"><span>@Model[i].Name</span> <i class="bi bi-chevron-right"></i></a>
+                                            <a href="#"><span>@Model.categories[i].Name</span> <i class="bi bi-chevron-right"></i></a>
                                             <ul>
-                                                @for (int j = 0; j < Model[i].Subtitles.Count; j++)
+                                                @for (int j = 0; j < Model.categories[i].Subtitles.Count; j++)
                                                 {
-                                                    <li><a href="#">@Model[i].Subtitles[j].Name</a></li>
+                                                    <li><a href="#">@Model.categories[i].Subtitles[j].Name</a></li>
                                                 }
                                             </ul>
                                         </li>
                                     }
                                     else
                                     {
-                                        <li><a href="#">@Model[i].Name</a></li>
+                                        <li><a href="#">@Model.categories[i].Name</a></li>
                                     }
                                 }
                             }
@@ -70,25 +70,25 @@
                     <a href="#"><span>Araştırma</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @{
-                            for (int i = 0; i < Model.Count; i++)
+                            for (int i = 0; i < Model.categories.Count; i++)
                             {
-                                if (Model[i].NavBarHeader == NavBarHeader.Research)
+                                if (Model.categories[i].NavBarHeader == NavBarHeader.Research)
                                 {
-                                    if (Model[i].Subtitles.Count != 0)
+                                    if (Model.categories[i].Subtitles.Count != 0)
                                     {
                                         <li class="dropdown">
-                                            <a href="#"><span>@Model[i].Name</span> <i class="bi bi-chevron-right"></i></a>
+                                            <a href="#"><span>@Model.categories[i].Name</span> <i class="bi bi-chevron-right"></i></a>
                                             <ul>
-                                                @for (int j = 0; j < Model[i].Subtitles.Count; j++)
+                                                @for (int j = 0; j < Model.categories[i].Subtitles.Count; j++)
                                                 {
-                                                    <li><a href="#">@Model[i].Subtitles[j].Name</a></li>
+                                                    <li><a href="#">@Model.categories[i].Subtitles[j].Name</a></li>
                                                 }
                                             </ul>
                                         </li>
                                     }
                                     else
                                     {
-                                        <li><a href="#">@Model[i].Name</a></li>
+                                        <li><a href="#">@Model.categories[i].Name</a></li>
                                     }
                                 }
                             }
@@ -100,25 +100,25 @@
                     <a href="#"><span>İhtisaslaşma</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @{
-                            for (int i = 0; i < Model.Count; i++)
+                            for (int i = 0; i < Model.categories.Count; i++)
                             {
-                                if (Model[i].NavBarHeader == NavBarHeader.Specialization)
+                                if (Model.categories[i].NavBarHeader == NavBarHeader.Specialization)
                                 {
-                                    if (Model[i].Subtitles.Count != 0)
+                                    if (Model.categories[i].Subtitles.Count != 0)
                                     {
                                         <li class="dropdown">
-                                            <a href="#"><span>@Model[i].Name</span> <i class="bi bi-chevron-right"></i></a>
+                                            <a href="#"><span>@Model.categories[i].Name</span> <i class="bi bi-chevron-right"></i></a>
                                             <ul>
-                                                @for (int j = 0; j < Model[i].Subtitles.Count; j++)
+                                                @for (int j = 0; j < Model.categories[i].Subtitles.Count; j++)
                                                 {
-                                                    <li><a href="#">@Model[i].Subtitles[j].Name</a></li>
+                                                    <li><a href="#">@Model.categories[i].Subtitles[j].Name</a></li>
                                                 }
                                             </ul>
                                         </li>
                                     }
                                     else
                                     {
-                                        <li><a href="#">@Model[i].Name</a></li>
+                                        <li><a href="#">@Model.categories[i].Name</a></li>
                                     }
                                 }
                             }
@@ -130,25 +130,25 @@
                     <a href="#"><span>Hızlı Erişim</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         @{
-                            for (int i = 0; i < Model.Count; i++)
+                            for (int i = 0; i < Model.categories.Count; i++)
                             {
-                                if (Model[i].NavBarHeader == NavBarHeader.FastAccess)
+                                if (Model.categories[i].NavBarHeader == NavBarHeader.FastAccess)
                                 {
-                                    if (Model[i].Subtitles.Count != 0)
+                                    if (Model.categories[i].Subtitles.Count != 0)
                                     {
                                         <li class="dropdown">
-                                            <a href="#"><span>@Model[i].Name</span> <i class="bi bi-chevron-right"></i></a>
+                                            <a href="#"><span>@Model.categories[i].Name</span> <i class="bi bi-chevron-right"></i></a>
                                             <ul>
-                                                @for (int j = 0; j < Model[i].Subtitles.Count; j++)
+                                                @for (int j = 0; j < Model.categories[i].Subtitles.Count; j++)
                                                 {
-                                                    <li><a href="#">@Model[i].Subtitles[j].Name</a></li>
+                                                    <li><a href="#">@Model.categories[i].Subtitles[j].Name</a></li>
                                                 }
                                             </ul>
                                         </li>
                                     }
                                     else
                                     {
-                                        <li><a href="#">@Model[i].Name</a></li>
+                                        <li><a href="#">@Model.categories[i].Name</a></li>
                                     }
                                 }
                             }

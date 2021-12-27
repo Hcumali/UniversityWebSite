@@ -9,13 +9,12 @@ using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Concrete.Mappings
 {
-    public class SubtitleConfig : IEntityTypeConfiguration<Subtitle>
+    public class VideoConfig : IEntityTypeConfiguration<Video>
     {
-        public void Configure(EntityTypeBuilder<Subtitle> builder)
+        public void Configure(EntityTypeBuilder<Video> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedOnAdd();
-            builder.HasOne(x => x.Category).WithMany(x => x.Subtitles).HasForeignKey(x => x.CategoryId);
+            builder.Property(x => x.Title).IsRequired();
+            builder.Property(x => x.Url).IsRequired();
         }
     }
 }

@@ -23,6 +23,43 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-top: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.form-group{
+    margin: 15px;
+}
+
+.contentIn h1{
+    margin-bottom: 3rem;
+}
+
+.contentIn button {
+    margin-top: 3rem;
+}
+
+.contentIn label {
+    font-weight: 600;
+    font-size: medium;
+}
+
+table {
+    margin-top: 2%;
+}
+
+td, th{
+    justify-content: center;
+}
+
+#error{
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    color: red;
+    margin: 8px;
+    padding: 4px;
 }
 
 .sidenav #logout:hover {
@@ -86,6 +123,7 @@ body {
 
 .sidenav .main-buttons a:hover {
     background-color: coral;
+    color: white;
 }
 
 .sidenav .main-buttons .item{
@@ -144,7 +182,6 @@ body {
     width: 1%;
     height: 15%;
 }
-
 
 
 

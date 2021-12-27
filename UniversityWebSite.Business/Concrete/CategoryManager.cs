@@ -35,6 +35,11 @@ namespace UniversityWebSite.Business.Concrete
             return _categoryRepository.GetAll(x => x.NavBarHeader == navBarHeader);
         }
 
+        public Category GetCategoryByName(string name)
+        {
+            return _categoryRepository.Get(x => x.Name == name);
+        }
+
         public void UpdateCategory(Category category)
         {
             _categoryRepository.Update(category);

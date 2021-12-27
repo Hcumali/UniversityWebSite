@@ -2,68 +2,13 @@
     Layout = "_LayoutDashboard";
     ViewData["Title"] = "Güncelle";
     var pageName = ViewData["pageName"];
+    var id = ViewData["id"];
+
 }
 
-@{
-    switch (pageName)
-    {
-        case "home-vision":
-            <h1>Güncelle vizyonumuz</h1>
-            <!--View Component-->
-            break;
-        case "home-statistics":
-            <h1>Güncelle istatistikler</h1>
-            <!--View Component-->
-            break;
-        case "home-about":
-            <h1>Güncelle hakkında</h1>
-            <!--View Component-->
-            break;
-        case "home-keywords":
-            <h1>Güncelle anahtar kelimeler</h1>
-            <!--View Component-->
-            break;
-        case "home-videos":
-            <h1>Güncelle videolar</h1>
-            <!--View Component-->
-            break;
-        case "home-pictures":
-            <h1>Güncelle resimler</h1>
-            <!--View Component-->
-            break;
-        case "home-contact":
-            <h1>Güncelle iletişim</h1>
-            <!--View Component-->
-            break;
-
-
-        case "university":
-            <h1>Güncelle universite başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
-
-        case "academic":
-            <h1>Güncelle akademik başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
-
-        case "research":
-            <h1>Güncelle araştırma başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
-
-        case "specialization":
-            <h1>Güncelle ihtisaslaşma başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
-
-        case "fastAccess":
-            <h1>Güncelle hızlı erişim başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
-
-        default:
-            <h1>Error</h1>
-            break;
-    }
+@{ 
+    <h1>@pageName</h1>
+    <h1>@id</h1>
 }
+
+update categoryyyyyyyyyyyyyyyy

@@ -16,5 +16,15 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
         {
             _context = context;
         }
+
+        public void DeleteByCategoryId(int id)
+        {
+            var willDeleteList = _context.Set<Subtitle>().Where(x => x.CategoryId == id).ToList();
+            foreach (var item in willDeleteList)
+            {
+                _context.Set<Subtitle>().Remove(item);
+                _context.SaveChanges();
+            }
+        }
     }
 }

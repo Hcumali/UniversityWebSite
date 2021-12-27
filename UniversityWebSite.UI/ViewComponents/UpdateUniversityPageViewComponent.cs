@@ -8,10 +8,10 @@ using UniversityWebSite.Entities.Enums;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
-    public class UniversityPageViewComponent : ViewComponent
+    public class UpdateUniversityPageViewComponent : ViewComponent
     {
         ICategoryService _categoryService;
-        public UniversityPageViewComponent(ICategoryService categoryService)
+        public UpdateUniversityPageViewComponent(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }

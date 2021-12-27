@@ -1,69 +1,92 @@
-﻿@{
+﻿@model CreateCategoryForm
+@{
     Layout = "_LayoutDashboard";
     ViewData["Title"] = "Ekle";
     var pageName = ViewData["pageName"];
 }
 
-@{
-    switch (pageName)
-    {
-        case "home-vision":
-            <h1>Ekle vizyonumuz</h1>
-            <!--View Component-->
-            break;
-        case "home-statistics":
-            <h1>Ekle istatistikler</h1>
-            <!--View Component-->
-            break;
-        case "home-about":
-            <h1>Ekle hakkında</h1>
-            <!--View Component-->
-            break;
-        case "home-keywords":
-            <h1>Ekle anahtar kelimeler</h1>
-            <!--View Component-->
-            break;
-        case "home-videos":
-            <h1>Ekle videolar</h1>
-            <!--View Component-->
-            break;
-        case "home-pictures":
-            <h1>Ekle resimler</h1>
-            <!--View Component-->
-            break;
-        case "home-contact":
-            <h1>Ekle iletişim</h1>
-            <!--View Component-->
-            break;
+<div class="contentIn">
+    <div>
+        <div asp-validation-summary="All"></div>
+        <h1>Kategori Oluştur</h1>
 
+        <div class="form-group">
+            <label>Kategori Üst Başlığı</label>
+            <select class="form-control" id="navBarHeader">
+                <option>@UniversityWebSite.Entities.Enums.NavBarHeader.University</option>
+            </select>
+        </div>
 
-        case "university":
-            <h1>Ekle universite başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
+        <div class="form-group">
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" id="categoryName" required>
+        </div>
 
-        case "academic":
-            <h1>Ekle akademik başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
+        <div class="form-group">
+            <label>Alt Başlık Sayısı</label>
+            <select class="form-control" id="subtitle_count">
+                @{
+                    for (int i = 0; i < 11; i++)
+                    {
+                        <option>@i</option>
+                    }
+                }
+            </select>
+        </div>
+        <div id="subtitles"></div>
 
-        case "research":
-            <h1>Ekle araştırma başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
+        <div class="row justify-content-center">
+            <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Oluştur</button>
+        </div>
 
-        case "specialization":
-            <h1>Ekle ihtisaslaşma başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
+        <div id="error"></div>
+    </div>
+</div>
 
-        case "fastAccess":
-            <h1>Ekle hızlı erişim başlığına ait kategoriler</h1>
-            <!--View Component-->
-            break;
+<script>
+    var select = document.querySelector('#subtitle_count');
+    select.addEventListener('change', function () {
+        const myNode = document.getElementById("subtitles");
+        myNode.innerHTML = '';
 
-        default:
-            <h1>Error</h1>
-            break;
-    }
-}
+        var subtitle_count = parseInt($('#subtitle_count').val());
+        window.subtitle_count = subtitle_count;
+
+        for (var i = 0; i < subtitle_count; i++) {
+            $('#subtitles').append(`<div class="form-group"><label>Alt başlık Adı</label><input id="${i}" type="text" class="form-control"></div>`);
+        }
+    });
+</script>
+
+<script>
+    function sendForm() {
+        document.getElementById("error").innerHTML = "";
+        var categoryName = document.getElementById("categoryName").value;
+        if (categoryName == "" || categoryName.length < 3) {
+            document.getElementById("error").innerHTML = "Kategori adı boş veya 3 karakterden küçük olamaz.";
+            return;
+        }
+        var navBarHeader = document.getElementById("navBarHeader").value;
+        var subtitles = [];
+        for (var i = 0; i < window.subtitle_count; i++) {
+            subtitles[i] = document.getElementById(i).value;
+            if (subtitles[i] == "" || subtitles[i].lenth < 3) {
+                document.getElementById("error").innerHTML = "Alt başlıklar boş veya 3 karakterden küçük olamaz.";
+            }
+        }
+
+        $.ajax({
+            url: "/Dashboard/CreateCategory",
+            type: "POST",
+            data: {
+                CategoryName: categoryName, NavBarHeader: navBarHeader, Subtitles: subtitles
+            },
+            success: function (result) {
+                console.log(result);
+                console.log(typeof result);
+                window.location = "/Dashboard/ReadCategory?page=university";
+            }
+        });
+
+    } // end of function
+</script>

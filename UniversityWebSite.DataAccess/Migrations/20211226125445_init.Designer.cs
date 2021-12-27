@@ -10,7 +10,7 @@ using UniversityWebSite.DataAccess.Concrete.Contexts;
 namespace UniversityWebSite.DataAccess.Migrations
 {
     [DbContext(typeof(EfContext))]
-    [Migration("20211225095322_init")]
+    [Migration("20211226125445_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,7 +71,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 596, DateTimeKind.Local).AddTicks(950),
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 761, DateTimeKind.Local).AddTicks(8602),
                             Password = "123456a",
                             Username = "admin"
                         });
@@ -134,21 +134,21 @@ namespace UniversityWebSite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4126),
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3213),
                             Name = "Düzce",
                             NavBarHeader = 0
                         },
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4506),
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3696),
                             Name = "Kuruluş",
                             NavBarHeader = 0
                         },
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4510),
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3700),
                             Name = "Sayılarla DÜ",
                             NavBarHeader = 0
                         });
@@ -286,15 +286,43 @@ namespace UniversityWebSite.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 2,
-                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4802),
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4019),
                             Name = "subtitle1"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedTime = new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(5110),
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4335),
                             Name = "subtitle2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 3,
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4337),
+                            Name = "subtitle3"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 3,
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4338),
+                            Name = "subtitle4"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 1,
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4339),
+                            Name = "subtitle5"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 1,
+                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4341),
+                            Name = "subtitle6"
                         });
                 });
 

@@ -22,9 +22,9 @@ namespace UniversityWebSite.UI.Controllers
 
         public IActionResult Index()
         {
-            IEnumerable<Category> categories = _categoryService.GetAllCategory();
-
-            return View(categories);
+            HomePageViewModel homePageViewModel = new HomePageViewModel();
+            homePageViewModel.categories = _categoryService.GetAllCategory();
+            return View(homePageViewModel);
         }
 
         public IActionResult Error()

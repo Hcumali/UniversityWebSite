@@ -9,6 +9,6 @@ namespace UniversityWebSite.DataAccess.Abstract.Repositories
 {
     public interface ISubtitleRepository : IGenericRepository<Subtitle>
     {
-
+        void DeleteByCategoryId(int id);
     }
 }

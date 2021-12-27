@@ -7,7 +7,7 @@ using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Abstract.Repositories
 {
-    public interface IBoxRepository : IGenericRepository<Box>
+    public interface IBoxRepository : IGenericRepository<Keyword>
     {
     }
 }

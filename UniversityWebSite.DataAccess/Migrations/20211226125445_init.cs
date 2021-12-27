@@ -184,27 +184,30 @@ namespace UniversityWebSite.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Admins",
                 columns: new[] { "Id", "CreatedTime", "Password", "UpdatedTime", "Username" },
-                values: new object[] { 1, new DateTime(2021, 12, 25, 12, 53, 21, 596, DateTimeKind.Local).AddTicks(950), "123456a", null, "admin" });
+                values: new object[] { 1, new DateTime(2021, 12, 26, 15, 54, 44, 761, DateTimeKind.Local).AddTicks(8602), "123456a", null, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "CreatedTime", "Name", "NavBarHeader", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4126), "Düzce", 0, null },
-                    { 2, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4506), "Kuruluş", 0, null },
-                    { 3, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4510), "Sayılarla DÜ", 0, null }
+                    { 1, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3213), "Düzce", 0, null },
+                    { 2, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3696), "Kuruluş", 0, null },
+                    { 3, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3700), "Sayılarla DÜ", 0, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Subtitles",
                 columns: new[] { "Id", "CategoryId", "CreatedTime", "Name", "UpdatedTime" },
-                values: new object[] { 1, 2, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(4802), "subtitle1", null });
-
-            migrationBuilder.InsertData(
-                table: "Subtitles",
-                columns: new[] { "Id", "CategoryId", "CreatedTime", "Name", "UpdatedTime" },
-                values: new object[] { 2, 2, new DateTime(2021, 12, 25, 12, 53, 21, 597, DateTimeKind.Local).AddTicks(5110), "subtitle2", null });
+                values: new object[,]
+                {
+                    { 5, 1, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4339), "subtitle5", null },
+                    { 6, 1, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4341), "subtitle6", null },
+                    { 1, 2, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4019), "subtitle1", null },
+                    { 2, 2, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4335), "subtitle2", null },
+                    { 3, 3, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4337), "subtitle3", null },
+                    { 4, 3, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4338), "subtitle4", null }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Boxes_AboutId",

@@ -26,7 +26,11 @@ namespace UniversityWebSite.DataAccess.Concrete.Initializer
             // Subtitle
             modelBuilder.Entity<Subtitle>().HasData(
                 new Subtitle() { Id = 1, Name = "subtitle1", CategoryId = 2 },
-                new Subtitle() { Id = 2, Name = "subtitle2", CategoryId = 2 }
+                new Subtitle() { Id = 2, Name = "subtitle2", CategoryId = 2 },
+                new Subtitle() { Id = 3, Name = "subtitle3", CategoryId = 3 },
+                new Subtitle() { Id = 4, Name = "subtitle4", CategoryId = 3 },
+                new Subtitle() { Id = 5, Name = "subtitle5", CategoryId = 1 },
+                new Subtitle() { Id = 6, Name = "subtitle6", CategoryId = 1 }
             );
         }
     }
