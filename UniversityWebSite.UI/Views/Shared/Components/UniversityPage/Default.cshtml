@@ -8,6 +8,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Oluşturulma Tarihi</th>
+                <th scope="col">Güncellenme Tarihi</th>
                 <th scope="col">Üst Başlık</th>
                 <th scope="col">Kategori Adı</th>
                 <th scope="col">Alt Başlık Sayısı</th>
@@ -19,6 +20,7 @@
                 <tr>
                     <td>@Model[i].Id</td>
                     <td>@Model[i].CreatedTime</td>
+                    <td>@Model[i].UpdatedTime</td>
                     <td>@Model[i].NavBarHeader</td>
                     <td>@Model[i].Name</td>
                     <td>@Model[i].Subtitles.Count</td>

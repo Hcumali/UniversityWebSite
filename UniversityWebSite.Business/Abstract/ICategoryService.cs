@@ -12,6 +12,7 @@ namespace UniversityWebSite.Business.Abstract
     public interface ICategoryService
     {
         void CreateCategory(Category category);
+        Category GetCategoryById(int id);
         Category GetCategoryByName(string name);
         IEnumerable<Category> GetAllCategory();
         IEnumerable<Category> GetCategoryByHeader(NavBarHeader navBarHeader);

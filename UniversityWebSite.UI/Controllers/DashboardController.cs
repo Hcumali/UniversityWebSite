@@ -35,6 +35,7 @@ namespace UniversityWebSite.UI.Controllers
 
         public IActionResult CreateCategory(string page)
         {
+            ViewData["pageName"] = page;
             return View();
         }
 
@@ -62,17 +63,18 @@ namespace UniversityWebSite.UI.Controllers
 
         public Enum EnumParser(string expression)
         {
+            expression = expression.ToLower();
             switch (expression)
             {
-                case "University":
+                case "university":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.University;
-                case "Academic":
+                case "academic":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.Academic;
-                case "Research":
+                case "research":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.Research;
-                case "Specialization":
+                case "specialization":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.Specialization;
-                case "FastAccess":
+                case "fastAccess":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.FastAccess;
                 default:
                     throw new Exception("Something went wrong");
@@ -84,6 +86,36 @@ namespace UniversityWebSite.UI.Controllers
             ViewData["pageName"] = page;
             ViewData["id"] = id;
             return View();
+        }
+
+        [HttpPost]
+        public void UpdateCategory(UpdateCategoryForm updateCategoryForm)
+        {
+            if (updateCategoryForm.CategoryName != null)
+            {
+                Category category = new Category()
+                {
+                    Id = updateCategoryForm.CategoryId,
+                    CreatedTime = updateCategoryForm.CreatedTime,
+                    NavBarHeader = (Entities.Enums.NavBarHeader)EnumParser(updateCategoryForm.NavBarHeader),
+                    Name = updateCategoryForm.CategoryName
+                };
+                _categoryService.UpdateCategory(category);
+            }
+
+            if(updateCategoryForm.SubtitleId != null)
+            {
+                for (int i = 0; i < updateCategoryForm.SubtitleId.Count; i++)
+                {
+                    Subtitle subtitle = new Subtitle()
+                    {
+                        Id = updateCategoryForm.SubtitleId[i],
+                        Name = updateCategoryForm.SubtitleName[i],
+                        CategoryId = updateCategoryForm.CategoryId
+                    };
+                    _subtitleService.UpdateSubtitle(subtitle);
+                }
+            }
         }
 
         public IActionResult DeleteCategory(string page, int id)

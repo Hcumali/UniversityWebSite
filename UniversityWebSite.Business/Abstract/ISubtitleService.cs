@@ -12,6 +12,8 @@ namespace UniversityWebSite.Business.Abstract
         void CreateSubtitle(Subtitle subtitle);
         void DeleteSubtitle(int id);
         void DeleteSubtitleByCategoryId(int categoryId);
+        void UpdateSubtitle(Subtitle subtitle);
+
 
     }
 }

@@ -32,5 +32,10 @@ namespace UniversityWebSite.Business.Concrete
         {
             _subtitleRepository.DeleteByCategoryId(categoryId);
         }
+
+        public void UpdateSubtitle(Subtitle subtitle)
+        {
+            _subtitleRepository.Update(subtitle);
+        }
     }
 }

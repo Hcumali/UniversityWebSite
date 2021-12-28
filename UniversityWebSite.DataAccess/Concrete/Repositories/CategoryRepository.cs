@@ -25,5 +25,10 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
                 ? _context.Set<Category>().Include(x => x.Subtitles).ToList()
                 : _context.Set<Category>().Where(filter).Include(x => x.Subtitles).ToList();
         }
+
+        public override Category Get(Expression<Func<Category, bool>> filter)
+        {
+            return _context.Set<Category>().Include(x => x.Subtitles).SingleOrDefault(filter);
+        }
     }
 }

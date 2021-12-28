@@ -25,6 +25,8 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
 
         public virtual void Create(T entity)
         {
+            var convertedEntity = entity as BaseEntity;
+            convertedEntity.CreatedTime = DateTime.Now;
             _setEntity.Add(entity);
             _dbContext.SaveChanges();
         }

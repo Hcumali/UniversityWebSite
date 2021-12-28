@@ -3,12 +3,61 @@
     ViewData["Title"] = "Güncelle";
     var pageName = ViewData["pageName"];
     var id = ViewData["id"];
-
 }
 
-@{ 
-    <h1>@pageName</h1>
-    <h1>@id</h1>
+@{
+    switch (pageName)
+    {
+        case "home-about":
+
+            break;
+
+        case "home-statistics":
+
+            break;
+
+        case "home-keywords":
+
+            break;
+
+        case "home-videos":
+
+            break;
+
+        case "home-pictures":
+
+            break;
+
+        case "home-contact":
+
+            break;
+
+
+        case "university":
+            @await Component.InvokeAsync("UniversityPageUpdate");
+            break;
+
+        case "academic":
+
+            break;
+
+        case "research":
+
+            break;
+
+        case "specialization":
+
+            break;
+
+        case "fastAccess":
+
+            break;
+
+        default:
+            <h1>Can't get the pageName</h1>
+            break;
+    }
 }
 
-update categoryyyyyyyyyyyyyyyy
+
+

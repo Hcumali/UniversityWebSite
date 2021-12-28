@@ -26,7 +26,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Paragraph")
@@ -47,7 +47,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
@@ -69,7 +69,6 @@ namespace UniversityWebSite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 761, DateTimeKind.Local).AddTicks(8602),
                             Password = "123456a",
                             Username = "admin"
                         });
@@ -85,7 +84,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.Property<int?>("AboutId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Header")
@@ -111,7 +110,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -132,21 +131,21 @@ namespace UniversityWebSite.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3213),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 919, DateTimeKind.Local).AddTicks(8637),
                             Name = "Düzce",
                             NavBarHeader = 0
                         },
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3696),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5108),
                             Name = "Kuruluş",
                             NavBarHeader = 0
                         },
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3700),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5120),
                             Name = "Sayılarla DÜ",
                             NavBarHeader = 0
                         });
@@ -162,7 +161,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
@@ -189,7 +188,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")
@@ -210,7 +209,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("UpdatedTime")
@@ -231,7 +230,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("NumberOfFaculty")
@@ -264,7 +263,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     b.Property<int?>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
@@ -284,42 +283,42 @@ namespace UniversityWebSite.DataAccess.Migrations
                         {
                             Id = 1,
                             CategoryId = 2,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4019),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5576),
                             Name = "subtitle1"
                         },
                         new
                         {
                             Id = 2,
                             CategoryId = 2,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4335),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5912),
                             Name = "subtitle2"
                         },
                         new
                         {
                             Id = 3,
                             CategoryId = 3,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4337),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5916),
                             Name = "subtitle3"
                         },
                         new
                         {
                             Id = 4,
                             CategoryId = 3,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4338),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5917),
                             Name = "subtitle4"
                         },
                         new
                         {
                             Id = 5,
                             CategoryId = 1,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4339),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5918),
                             Name = "subtitle5"
                         },
                         new
                         {
                             Id = 6,
                             CategoryId = 1,
-                            CreatedTime = new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4341),
+                            CreatedTime = new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5919),
                             Name = "subtitle6"
                         });
                 });
@@ -331,7 +330,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("CreatedTime")
+                    b.Property<DateTime?>("CreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Title")

@@ -18,19 +18,19 @@ namespace UniversityWebSite.DataAccess.Concrete.Initializer
 
             // Category
             modelBuilder.Entity<Category>().HasData(
-                new Category() { Id = 1, NavBarHeader = NavBarHeader.University, Name = "Düzce" },
-                new Category() { Id = 2, NavBarHeader = NavBarHeader.University, Name = "Kuruluş" },
-                new Category() { Id = 3, NavBarHeader = NavBarHeader.University, Name = "Sayılarla DÜ"}
+                new Category() { Id = 1, CreatedTime= DateTime.Now, NavBarHeader = NavBarHeader.University, Name = "Düzce" },
+                new Category() { Id = 2, CreatedTime = DateTime.Now, NavBarHeader = NavBarHeader.University, Name = "Kuruluş" },
+                new Category() { Id = 3, CreatedTime = DateTime.Now, NavBarHeader = NavBarHeader.University, Name = "Sayılarla DÜ"}
             );
 
             // Subtitle
             modelBuilder.Entity<Subtitle>().HasData(
-                new Subtitle() { Id = 1, Name = "subtitle1", CategoryId = 2 },
-                new Subtitle() { Id = 2, Name = "subtitle2", CategoryId = 2 },
-                new Subtitle() { Id = 3, Name = "subtitle3", CategoryId = 3 },
-                new Subtitle() { Id = 4, Name = "subtitle4", CategoryId = 3 },
-                new Subtitle() { Id = 5, Name = "subtitle5", CategoryId = 1 },
-                new Subtitle() { Id = 6, Name = "subtitle6", CategoryId = 1 }
+                new Subtitle() { Id = 1, CreatedTime = DateTime.Now, Name = "subtitle1", CategoryId = 2 },
+                new Subtitle() { Id = 2, CreatedTime = DateTime.Now, Name = "subtitle2", CategoryId = 2 },
+                new Subtitle() { Id = 3, CreatedTime = DateTime.Now, Name = "subtitle3", CategoryId = 3 },
+                new Subtitle() { Id = 4, CreatedTime = DateTime.Now, Name = "subtitle4", CategoryId = 3 },
+                new Subtitle() { Id = 5, CreatedTime = DateTime.Now, Name = "subtitle5", CategoryId = 1 },
+                new Subtitle() { Id = 6, CreatedTime = DateTime.Now, Name = "subtitle6", CategoryId = 1 }
             );
         }
     }

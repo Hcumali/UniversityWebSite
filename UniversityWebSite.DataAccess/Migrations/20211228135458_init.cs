@@ -14,7 +14,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Paragraph = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -30,7 +30,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -46,7 +46,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NavBarHeader = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -64,7 +64,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Fax = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -79,7 +79,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -94,7 +94,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -112,7 +112,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     NumberOfFaculty = table.Column<int>(type: "int", nullable: false),
                     NumberOfProject = table.Column<int>(type: "int", nullable: false),
                     NumberOfTeacher = table.Column<int>(type: "int", nullable: false),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -128,7 +128,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Url = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -145,7 +145,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                     Header = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AboutId = table.Column<int>(type: "int", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -167,7 +167,7 @@ namespace UniversityWebSite.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<int>(type: "int", nullable: true),
-                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdatedTime = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
@@ -184,16 +184,16 @@ namespace UniversityWebSite.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Admins",
                 columns: new[] { "Id", "CreatedTime", "Password", "UpdatedTime", "Username" },
-                values: new object[] { 1, new DateTime(2021, 12, 26, 15, 54, 44, 761, DateTimeKind.Local).AddTicks(8602), "123456a", null, "admin" });
+                values: new object[] { 1, null, "123456a", null, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "CreatedTime", "Name", "NavBarHeader", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3213), "Düzce", 0, null },
-                    { 2, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3696), "Kuruluş", 0, null },
-                    { 3, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(3700), "Sayılarla DÜ", 0, null }
+                    { 1, new DateTime(2021, 12, 28, 16, 54, 57, 919, DateTimeKind.Local).AddTicks(8637), "Düzce", 0, null },
+                    { 2, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5108), "Kuruluş", 0, null },
+                    { 3, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5120), "Sayılarla DÜ", 0, null }
                 });
 
             migrationBuilder.InsertData(
@@ -201,12 +201,12 @@ namespace UniversityWebSite.DataAccess.Migrations
                 columns: new[] { "Id", "CategoryId", "CreatedTime", "Name", "UpdatedTime" },
                 values: new object[,]
                 {
-                    { 5, 1, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4339), "subtitle5", null },
-                    { 6, 1, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4341), "subtitle6", null },
-                    { 1, 2, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4019), "subtitle1", null },
-                    { 2, 2, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4335), "subtitle2", null },
-                    { 3, 3, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4337), "subtitle3", null },
-                    { 4, 3, new DateTime(2021, 12, 26, 15, 54, 44, 763, DateTimeKind.Local).AddTicks(4338), "subtitle4", null }
+                    { 5, 1, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5918), "subtitle5", null },
+                    { 6, 1, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5919), "subtitle6", null },
+                    { 1, 2, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5576), "subtitle1", null },
+                    { 2, 2, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5912), "subtitle2", null },
+                    { 3, 3, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5916), "subtitle3", null },
+                    { 4, 3, new DateTime(2021, 12, 28, 16, 54, 57, 920, DateTimeKind.Local).AddTicks(5917), "subtitle4", null }
                 });
 
             migrationBuilder.CreateIndex(
