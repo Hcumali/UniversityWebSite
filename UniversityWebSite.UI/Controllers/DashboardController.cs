@@ -103,14 +103,15 @@ namespace UniversityWebSite.UI.Controllers
                 _categoryService.UpdateCategory(category);
             }
 
-            if(updateCategoryForm.SubtitleId != null)
+            if(updateCategoryForm.Subtitles != null)
             {
-                for (int i = 0; i < updateCategoryForm.SubtitleId.Count; i++)
+                for (int i = 0; i < updateCategoryForm.Subtitles.Count; i++)
                 {
                     Subtitle subtitle = new Subtitle()
                     {
-                        Id = updateCategoryForm.SubtitleId[i],
-                        Name = updateCategoryForm.SubtitleName[i],
+                        Id = updateCategoryForm.Subtitles[i].Id,
+                        CreatedTime = updateCategoryForm.CreatedTime,
+                        Name = updateCategoryForm.Subtitles[i].Name,
                         CategoryId = updateCategoryForm.CategoryId
                     };
                     _subtitleService.UpdateSubtitle(subtitle);

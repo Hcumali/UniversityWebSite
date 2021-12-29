@@ -1,13 +1,35 @@
-﻿
-
+﻿@model List<Category>
 
 <div class="contentIn">
+    <a class="btn btn-outline-primary" asp-controller="Dashboard" asp-action="CreateCategory" asp-route-page="research">Yeni Kategori Oluştur</a>
 
-    <h1> university page from view component</h1>
-    <h1> university page from view component</h1>
-    <h1> university page from view component</h1>
-    <h1> university page from view component</h1>
-    <h1> university page from view component</h1>
-
-
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Oluşturulma Tarihi</th>
+                <th scope="col">Güncellenme Tarihi</th>
+                <th scope="col">Üst Başlık</th>
+                <th scope="col">Kategori Adı</th>
+                <th scope="col">Alt Başlık Sayısı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>@Model[i].Id</td>
+                    <td>@Model[i].CreatedTime</td>
+                    <td>@Model[i].UpdatedTime</td>
+                    <td>@Model[i].NavBarHeader</td>
+                    <td>@Model[i].Name</td>
+                    <td>@Model[i].Subtitles.Count</td>
+                    <td>
+                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdateCategory" asp-route-page="research" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Dashboard" asp-action="DeleteCategory" asp-route-page="research" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-remove"></span> Remove </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

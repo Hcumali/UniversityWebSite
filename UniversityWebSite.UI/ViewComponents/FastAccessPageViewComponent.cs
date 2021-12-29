@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
+using UniversityWebSite.Entities.Enums;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
     public class FastAccessPageViewComponent : ViewComponent
     {
-        public FastAccessPageViewComponent()
+        ICategoryService _categoryService;
+        public FastAccessPageViewComponent(ICategoryService categoryService)
         {
-
+            _categoryService = categoryService;
         }
+
         public IViewComponentResult Invoke()
         {
-            return View();
+            var fastAccessCategories = _categoryService.GetCategoryByHeader(NavBarHeader.FastAccess);
+            return View(fastAccessCategories);
         }
     }
 }

@@ -45,11 +45,21 @@
     var categoryId = @Model.Id;
     var categoryName;
     var subtitles = [];
-    var subtitlesId = [];
 
     function changeSubtitle(id, name) {
-        subtitles.push(name);
-        subtitlesId.push(id);
+        debugger;
+
+        let isHaveId = subtitles.find(x => x.Id == id);
+
+        if (isHaveId != undefined) {
+            // Remove the old value for same id
+            subtitles = subtitles.filter(value => value !== isHaveId);
+            // Then update 
+            subtitles.push({ Id: id, Name: name });
+        }
+        else {
+            subtitles.push({ Id: id, Name: name});
+        }
     }
 
     function changeCategory(id, name) {
@@ -73,15 +83,15 @@
 
         if (subtitles.length != 0) {
             for (var i = 0; i < subtitles.length; i++) {
-                if (subtitles[i] == "" || subtitles[i].length < 3) {
+                if (subtitles[i].Name == "" || subtitles[i].Name.length < 3) {
                     document.getElementById("error").innerHTML = "Alt başlıklar boş veya 3 karakterden küçük olamaz.";
+                    subtitles = [];
                     return;
                 }
             }
         }
 
-
-        if (categoryName == undefined && subtitlesId.length == 0) {
+        if (categoryName == undefined && subtitles.length == 0) {
             alert("Herhangi bir değişiklik yapmadınız!");
             return;
         }
@@ -90,7 +100,7 @@
                 url: "/Dashboard/UpdateCategory",
                 type: "POST",
                 data: {
-                    CategoryId: categoryId, CategoryName: categoryName, SubtitleId: subtitlesId, SubtitleName: subtitles, NavBarHeader: navBarHeader, CreatedTime: "@ViewData["CreatedTime"]"
+                    CategoryId: categoryId, CategoryName: categoryName, Subtitles: subtitles, NavBarHeader: navBarHeader, CreatedTime: "@ViewData["CreatedTime"]"
                 },
                 success: function (result) {
                     window.location = "/Dashboard/ReadCategory?page=university";

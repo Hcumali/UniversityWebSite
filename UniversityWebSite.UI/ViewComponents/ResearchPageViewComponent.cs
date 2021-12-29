@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
+using UniversityWebSite.Entities.Enums;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
     public class ResearchPageViewComponent : ViewComponent
     {
-        public ResearchPageViewComponent()
+        ICategoryService _categoryService;
+        public ResearchPageViewComponent(ICategoryService categoryService)
         {
-            // business layer injection
+            _categoryService = categoryService;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            var researchCategories = _categoryService.GetCategoryByHeader(NavBarHeader.Research);
+            return View(researchCategories);
         }
     }
 }

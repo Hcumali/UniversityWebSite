@@ -26,5 +26,18 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
                 _context.SaveChanges();
             }
         }
+
+        public override void Update(Subtitle entity)
+        {
+            var convertedEntity = entity as BaseEntity;
+            convertedEntity.UpdatedTime = DateTime.Now;
+            _context.Set<Subtitle>().Update(entity);
+
+
+            var categoryOfWillUpdateTime =_context.Set<Category>().FirstOrDefault(x => x.Id == entity.CategoryId);
+            categoryOfWillUpdateTime.UpdatedTime = DateTime.Now;
+
+            _context.SaveChanges();
+        }
     }
 }

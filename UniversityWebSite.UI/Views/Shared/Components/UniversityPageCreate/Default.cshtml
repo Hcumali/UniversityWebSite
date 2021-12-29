@@ -62,10 +62,12 @@
             return;
         }
         var navBarHeader = document.getElementById("navBarHeader").value;
+
         var subtitles = [];
+        debugger;
         for (var i = 0; i < window.subtitle_count; i++) {
             subtitles[i] = document.getElementById(i).value;
-            if (subtitles[i] == "" || subtitles[i].lenth < 3) {
+            if (subtitles[i] == "" || subtitles[i].length < 3) {
                 document.getElementById("error").innerHTML = "Alt başlıklar boş veya 3 karakterden küçük olamaz.";
                 return;
             }

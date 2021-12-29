@@ -11,7 +11,13 @@ namespace UniversityWebSite.UI.Models
         public DateTime CreatedTime { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public List<int> SubtitleId { get; set; }
-        public List<string> SubtitleName { get; set; }
+        public List<SubtitleLocal> Subtitles { get; set; }
+    }
+
+    public class SubtitleLocal
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
     }
 }
