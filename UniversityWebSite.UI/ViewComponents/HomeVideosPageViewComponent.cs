@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
     public class HomeVideosPageViewComponent : ViewComponent
     {
-        public HomeVideosPageViewComponent()
+        IVideoService _videoService;
+
+        public HomeVideosPageViewComponent(IVideoService videoService)
         {
-                
+            _videoService = videoService;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            var videos = _videoService.GetAllVideo();
+            return View(videos);
         }
     }
 }

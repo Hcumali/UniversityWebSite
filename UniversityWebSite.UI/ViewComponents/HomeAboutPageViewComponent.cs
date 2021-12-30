@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
     public class HomeAboutPageViewComponent : ViewComponent
     {
-        public HomeAboutPageViewComponent()
-        {
+        IAboutService _aboutService;
 
+        public HomeAboutPageViewComponent(IAboutService aboutService)
+        {
+            _aboutService = aboutService;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            var about = _aboutService.GetAllAbout();
+            return View(about);
         }
     }
 }

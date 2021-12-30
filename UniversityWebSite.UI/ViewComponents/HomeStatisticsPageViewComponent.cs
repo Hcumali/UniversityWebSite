@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
     public class HomeStatisticsPageViewComponent : ViewComponent
     {
-        public HomeStatisticsPageViewComponent()
-        {
+        IStatisticService _statisticService;
 
+        public HomeStatisticsPageViewComponent(IStatisticService statisticService)
+        {
+            _statisticService = statisticService;
         }
 
         public IViewComponentResult Invoke()
         {
-            return View();
+            var statistic = _statisticService.GetAllStatistic();
+            return View(statistic);
         }
     }
 }
