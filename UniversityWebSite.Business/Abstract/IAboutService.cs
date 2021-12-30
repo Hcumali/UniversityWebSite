@@ -9,6 +9,7 @@ namespace UniversityWebSite.Business.Abstract
 {
     public interface IAboutService
     {
+        About GetAboutById(int id);
         IEnumerable<About> GetAllAbout();
         void UpdateAbout(About about);
     }

@@ -14,7 +14,7 @@ namespace UniversityWebSite.UI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var contact = _contactService.GetAllContact();
+            var contact = _contactService.GetContactById(1);
             return View(contact);
         }
     }

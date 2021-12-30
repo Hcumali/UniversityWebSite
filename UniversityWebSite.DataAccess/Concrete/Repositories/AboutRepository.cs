@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using UniversityWebSite.DataAccess.Concrete.Contexts;
 using UniversityWebSite.DataAccess.Abstract.Repositories;
 using UniversityWebSite.Entities.Concrete;
+using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace UniversityWebSite.DataAccess.Concrete.Repositories
 {
@@ -17,7 +19,9 @@ namespace UniversityWebSite.DataAccess.Concrete.Repositories
             _context = context;
         }
 
-        // Extra Functions from the this interface
-        // override functions
+        public override About Get(Expression<Func<About, bool>> filter)
+        {
+            return _context.Set<About>().Include(x => x.Boxes).SingleOrDefault(filter);
+        }
     }
 }

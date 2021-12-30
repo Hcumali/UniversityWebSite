@@ -14,7 +14,7 @@ namespace UniversityWebSite.UI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var about = _aboutService.GetAllAbout();
+            var about = _aboutService.GetAboutById(1);
             return View(about);
         }
     }

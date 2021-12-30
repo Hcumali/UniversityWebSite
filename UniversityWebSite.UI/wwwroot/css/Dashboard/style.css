@@ -28,6 +28,16 @@ body {
     padding-right: 5%;
 }
 
+.contentInKeywordPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .form-group{
     margin: 15px;
 }

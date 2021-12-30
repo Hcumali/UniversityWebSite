@@ -23,6 +23,11 @@ namespace UniversityWebSite.Business.Concrete
             return _statisticRepository.GetAll();
         }
 
+        public Statistic GetStatisticById(int id)
+        {
+            return _statisticRepository.Get(x => x.Id == id);
+        }
+
         public void UpdateStatistic(Statistic statistic)
         {
             _statisticRepository.Update(statistic);

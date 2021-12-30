@@ -24,6 +24,11 @@ namespace UniversityWebSite.Business.Concrete
             return _contactRepository.GetAll();
         }
 
+        public Contact GetContactById(int id)
+        {
+            return _contactRepository.Get(x => x.Id == id);
+        }
+
         public void UpdateContact(Contact contact)
         {
             _contactRepository.Update(contact);

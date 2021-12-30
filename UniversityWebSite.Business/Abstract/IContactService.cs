@@ -9,6 +9,7 @@ namespace UniversityWebSite.Business.Abstract
 {
     public interface IContactService
     {
+        Contact GetContactById(int id);
         IEnumerable<Contact> GetAllContact();
         void UpdateContact(Contact contact);
     }

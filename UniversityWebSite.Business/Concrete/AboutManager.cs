@@ -17,6 +17,11 @@ namespace UniversityWebSite.Business.Concrete
             _aboutRepository = aboutRepository;
         }
 
+        public About GetAboutById(int id)
+        {
+            return _aboutRepository.Get(x => x.Id == id);
+        }
+
         public IEnumerable<About> GetAllAbout()
         {
             return _aboutRepository.GetAll();

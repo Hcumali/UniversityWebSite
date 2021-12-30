@@ -1,7 +1,59 @@
 ﻿@model About
 
 <div class="contentIn">
+    <div>
+        <h1>Anasayfa - Hakkımızda Bölümü</h1>
 
-    <h1> ABOUT </h1>
+        <div class="form-group">
+            <label>Oluşturulma Tarihi</label>
+            <input type="text" class="form-control" value="@Model.CreatedTime" readonly>
+        </div>
 
+        <div class="form-group">
+            <label>Güncellenme Tarihi</label>
+            <input type="text" class="form-control" value="@Model.UpdatedTime" readonly>
+        </div>
+
+        <div class="form-group">
+            <label>Neden Biz? Başlıklı Paragraf</label>
+            <textarea class="form-control" rows="4" cols="40">@Model.Paragraph</textarea>
+        </div>
+
+        <div class="form-group">
+            <label><strong>Birinci Bilgilendirme Kutusu</strong></label><br />
+            <label>Başlık</label>
+            <input type="text" class="form-control" value="@Model.Boxes[0].Header" required>
+            <label>Metin</label>
+            <textarea class="form-control" rows="4" cols="40">@Model.Boxes[0].Text</textarea>
+        </div>
+
+        <div class="form-group">
+            <label><strong>İkinci Bilgilendirme Kutusu</strong></label><br />
+            <label>Başlık</label>
+            <input type="text" class="form-control" value="@Model.Boxes[1].Header" required>
+            <label>Metin</label>
+            <textarea class="form-control" rows="4" cols="40">@Model.Boxes[1].Text</textarea>
+        </div>
+
+        <div class="form-group">
+            <label><strong>Üçüncü Bilgilendirme Kutusu</strong></label><br />
+            <label>Başlık</label>
+            <input type="text" class="form-control" value="@Model.Boxes[2].Header" required>
+            <label>Metin</label>
+            <textarea class="form-control" rows="4" cols="40">@Model.Boxes[2].Text</textarea>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Güncelle</button>
+        </div>
+
+        <div id="error"></div>
+    </div>
 </div>
+
+<script>
+    function sendForm() {
+        console.log("working!");
+    }
+</script>

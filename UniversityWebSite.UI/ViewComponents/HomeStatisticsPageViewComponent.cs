@@ -14,7 +14,7 @@ namespace UniversityWebSite.UI.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var statistic = _statisticService.GetAllStatistic();
+            var statistic = _statisticService.GetStatisticById(1);
             return View(statistic);
         }
     }

@@ -9,6 +9,7 @@ namespace UniversityWebSite.Business.Abstract
 {
     public interface IStatisticService
     {
+        Statistic GetStatisticById(int id);
         IEnumerable<Statistic> GetAllStatistic();
         void UpdateStatistic(Statistic statistic);
     }
