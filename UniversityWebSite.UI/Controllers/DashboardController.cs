@@ -74,7 +74,7 @@ namespace UniversityWebSite.UI.Controllers
                     return UniversityWebSite.Entities.Enums.NavBarHeader.Research;
                 case "specialization":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.Specialization;
-                case "fastAccess":
+                case "fastaccess":
                     return UniversityWebSite.Entities.Enums.NavBarHeader.FastAccess;
                 default:
                     throw new Exception("Something went wrong");

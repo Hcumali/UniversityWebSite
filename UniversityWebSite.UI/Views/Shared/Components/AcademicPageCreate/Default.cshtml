@@ -1,35 +1,88 @@
-﻿@model List<Category>
+﻿@model CreateCategoryForm
 
 <div class="contentIn">
-    <a class="btn btn-outline-primary" asp-controller="Dashboard" asp-action="CreateCategory" asp-route-page="academic">Yeni Kategori Oluştur</a>
+    <div>
+        <h1>Kategori Oluştur</h1>
 
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Oluşturulma Tarihi</th>
-                <th scope="col">Güncellenme Tarihi</th>
-                <th scope="col">Üst Başlık</th>
-                <th scope="col">Kategori Adı</th>
-                <th scope="col">Alt Başlık Sayısı</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Count; i++)
-            {
-                <tr>
-                    <td>@Model[i].Id</td>
-                    <td>@Model[i].CreatedTime</td>
-                    <td>@Model[i].UpdatedTime</td>
-                    <td>@Model[i].NavBarHeader</td>
-                    <td>@Model[i].Name</td>
-                    <td>@Model[i].Subtitles.Count</td>
-                    <td>
-                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdateCategory" asp-route-page="academic" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="Dashboard" asp-action="DeleteCategory" asp-route-page="academic" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-remove"></span> Remove </a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        <div class="form-group">
+            <label>Kategori Üst Başlığı</label>
+            <select class="form-control" id="navBarHeader">
+                <option>@UniversityWebSite.Entities.Enums.NavBarHeader.Academic</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" id="categoryName" required>
+        </div>
+
+        <div class="form-group">
+            <label>Alt Başlık Sayısı</label>
+            <select class="form-control" id="subtitle_count">
+                @{
+                    for (int i = 0; i < 11; i++)
+                    {
+                        <option>@i</option>
+                    }
+                }
+            </select>
+        </div>
+        <div id="subtitles"></div>
+
+        <div class="row justify-content-center">
+            <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Oluştur</button>
+        </div>
+
+        <div id="error"></div>
+    </div>
 </div>
+
+
+<script>
+    var select = document.querySelector('#subtitle_count');
+    select.addEventListener('change', function () {
+        const myNode = document.getElementById("subtitles");
+        myNode.innerHTML = '';
+
+        var subtitle_count = parseInt($('#subtitle_count').val());
+        window.subtitle_count = subtitle_count;
+
+        for (var i = 0; i < subtitle_count; i++) {
+            $('#subtitles').append(`<div class="form-group"><label>Alt başlık Adı</label><input id="${i}" type="text" class="form-control"></div>`);
+        }
+    });
+</script>
+
+<script>
+    function sendForm() {
+        document.getElementById("error").innerHTML = "";
+        var categoryName = document.getElementById("categoryName").value;
+        if (categoryName == "" || categoryName.length < 3) {
+            document.getElementById("error").innerHTML = "Kategori adı boş veya 3 karakterden küçük olamaz.";
+            return;
+        }
+        var navBarHeader = document.getElementById("navBarHeader").value;
+
+        var subtitles = [];
+        debugger;
+        for (var i = 0; i < window.subtitle_count; i++) {
+            subtitles[i] = document.getElementById(i).value;
+            if (subtitles[i] == "" || subtitles[i].length < 3) {
+                document.getElementById("error").innerHTML = "Alt başlıklar boş veya 3 karakterden küçük olamaz.";
+                return;
+            }
+        }
+
+        $.ajax({
+            url: "/Dashboard/CreateCategory",
+            type: "POST",
+            data: {
+                CategoryName: categoryName, NavBarHeader: navBarHeader, Subtitles: subtitles
+            },
+            success: function (result) {
+                window.location = "/Dashboard/ReadCategory?page=academic";
+            }
+        });
+
+    } // end of function
+</script>

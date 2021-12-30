@@ -1,35 +1,111 @@
-﻿@model List<Category>
+﻿@model Category
 
 <div class="contentIn">
-    <a class="btn btn-outline-primary" asp-controller="Dashboard" asp-action="CreateCategory" asp-route-page="specialization">Yeni Kategori Oluştur</a>
+    <div>
+        <h1>Kategori Güncelle</h1>
 
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Oluşturulma Tarihi</th>
-                <th scope="col">Güncellenme Tarihi</th>
-                <th scope="col">Üst Başlık</th>
-                <th scope="col">Kategori Adı</th>
-                <th scope="col">Alt Başlık Sayısı</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for (int i = 0; i < Model.Count; i++)
+        <div class="form-group">
+            <label>Kategori Üst Başlığı</label>
+            <select class="form-control" id="navBarHeader">
+                <option>@UniversityWebSite.Entities.Enums.NavBarHeader.Specialization</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Kategori Adı</label>
+            <input type="text" class="form-control" id="categoryName" asp-for="Name" onchange="changeCategory(@ViewData["id"], this.value)">
+        </div>
+
+        <div class="form-group">
+            <label>Alt Başlık Sayısı</label>
+            <select class="form-control" id="subtitle_count" asp-for="Subtitles.Count">
+                <option>@Model.Subtitles.Count</option>
+            </select>
+        </div>
+
+        @{
+            for (int i = 0; i < Model.Subtitles.Count; i++)
             {
-                <tr>
-                    <td>@Model[i].Id</td>
-                    <td>@Model[i].CreatedTime</td>
-                    <td>@Model[i].UpdatedTime</td>
-                    <td>@Model[i].NavBarHeader</td>
-                    <td>@Model[i].Name</td>
-                    <td>@Model[i].Subtitles.Count</td>
-                    <td>
-                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdateCategory" asp-route-page="specialization" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="Dashboard" asp-action="DeleteCategory" asp-route-page="specialization" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-remove"></span> Remove </a>
-                    </td>
-                </tr>
+                <div class="form-group">
+                    <label>Alt başlık Adı</label>
+                    <input id="@i" type="text" class="form-control" asp-for="@Model.Subtitles[i].Name" onchange="changeSubtitle(@Model.Subtitles[i].Id, this.value)">
+                </div>
             }
-        </tbody>
-    </table>
+        }
+
+        <div class="row justify-content-center">
+            <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Güncelle</button>
+        </div>
+
+        <div id="error"></div>
+    </div>
 </div>
+
+<script>
+    var categoryId = @Model.Id;
+    var categoryName;
+    var subtitles = [];
+
+    function changeSubtitle(id, name) {
+        debugger;
+
+        let isHaveId = subtitles.find(x => x.Id == id);
+
+        if (isHaveId != undefined) {
+            // Remove the old value for same id
+            subtitles = subtitles.filter(value => value !== isHaveId);
+            // Then update
+            subtitles.push({ Id: id, Name: name });
+        }
+        else {
+            subtitles.push({ Id: id, Name: name});
+        }
+    }
+
+    function changeCategory(id, name) {
+        categoryId = id;
+        categoryName = name;
+    }
+
+    function sendForm() {
+        document.getElementById("error").innerHTML = "";
+        var navBarHeader = document.getElementById("navBarHeader").value;
+
+        debugger;
+
+
+        if (categoryName != undefined) {
+            if (categoryName == "" || categoryName.length < 3) {
+                document.getElementById("error").innerHTML = "Kategori adı boş veya 3 karakterden küçük olamaz.";
+                return;
+            }
+        }
+
+        if (subtitles.length != 0) {
+            for (var i = 0; i < subtitles.length; i++) {
+                if (subtitles[i].Name == "" || subtitles[i].Name.length < 3) {
+                    document.getElementById("error").innerHTML = "Alt başlıklar boş veya 3 karakterden küçük olamaz.";
+                    subtitles = [];
+                    return;
+                }
+            }
+        }
+
+        if (categoryName == undefined && subtitles.length == 0) {
+            alert("Herhangi bir değişiklik yapmadınız!");
+            return;
+        }
+        else {
+            $.ajax({
+                url: "/Dashboard/UpdateCategory",
+                type: "POST",
+                data: {
+                    CategoryId: categoryId, CategoryName: categoryName, Subtitles: subtitles, NavBarHeader: navBarHeader, CreatedTime: "@ViewData["CreatedTime"]"
+                },
+                success: function (result) {
+                    window.location = "/Dashboard/ReadCategory?page=specialization";
+                }
+            });
+        }
+} // end of function
+</script>

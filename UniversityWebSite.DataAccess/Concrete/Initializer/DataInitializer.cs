@@ -111,7 +111,58 @@ namespace UniversityWebSite.DataAccess.Concrete.Initializer
 
                 new Subtitle() { Id = 31, CreatedTime = DateTime.Now, Name = "Atatürk İlkeleri ve İnkılap Tarihi", CategoryId = 14 },
                 new Subtitle() { Id = 32, CreatedTime = DateTime.Now, Name = "Türk Dili", CategoryId = 14 }
+            );
 
+            // Keyword
+            modelBuilder.Entity<Keyword>().HasData(
+                new Keyword() { Id = 1, CreatedTime = DateTime.Now, Title = "Mühendislik" },
+                new Keyword() { Id = 2, CreatedTime = DateTime.Now, Title = "Tıp" },
+                new Keyword() { Id = 3, CreatedTime = DateTime.Now, Title = "Ziraat" },
+                new Keyword() { Id = 4, CreatedTime = DateTime.Now, Title = "Eğitim" },
+                new Keyword() { Id = 5, CreatedTime = DateTime.Now, Title = "Fen Edebiyat" },
+                new Keyword() { Id = 6, CreatedTime = DateTime.Now, Title = "Mimarlık" },
+                new Keyword() { Id = 7, CreatedTime = DateTime.Now, Title = "İşletme" },
+                new Keyword() { Id = 8, CreatedTime = DateTime.Now, Title = "Orman" },
+                new Keyword() { Id = 9, CreatedTime = DateTime.Now, Title = "Sağlık Bilimleri" },
+                new Keyword() { Id = 10, CreatedTime = DateTime.Now, Title = "Spor Bilimleri" },
+                new Keyword() { Id = 11, CreatedTime = DateTime.Now, Title = "Eğitim" },
+                new Keyword() { Id = 12, CreatedTime = DateTime.Now, Title = "Siyasal Bilgiler" }
+            );
+
+            // Contact
+            modelBuilder.Entity<Contact>().HasData(
+                new Contact() { Id = 1, CreatedTime = DateTime.Now, Email = "du@edu.tr", Fax = "+90 (380) 5421103", Phone = "+90 850 800 8181" }
+            );
+
+            // Statistic
+            modelBuilder.Entity<Statistic>().HasData(
+                new Statistic() { Id = 1, CreatedTime = DateTime.Now, NumberOfFaculty = 12, NumberOfTeacher = 1275, NumberOfStudent = 17592, NumberOfProject = 1231 }
+            );
+
+            // About
+            modelBuilder.Entity<About>().HasData(
+                new About() { Id = 1, CreatedTime = DateTime.Now, Paragraph = "Üniversitemizde öğrencilerimizin istedikleri alanda özelleşmelerine olanak sağlayan geniş yelpazeli seçmeli ders seçenekleri sunulmaktadır. Dileyen öğrencilerimiz diğer bölüm programlarıyla yandal ve çift anadal eğitimi alabilme imkânına sahiptir. Öğrencilerimize ilaveten Erasmus Öğrenci Değişim Programı kapsamında yurt dışında anlaşmalı olduğumuz üniversitelerde burslu eğitim alma imkânı da sağlanmaktadır. Bu program dahilinde öğrencilerimiz eğitimlerine bir veya iki dönem Avrupa’da devam edebilmektedirler." }
+            );
+
+            // Boxes
+            modelBuilder.Entity<Box>().HasData(
+                new Box() { Id = 1, CreatedTime = DateTime.Now, Header = "Nitelikli akademik kadro", Text = "Mesleki bilgileri kazanım için bir bölümdeki en önemli unsur öğretim kadrosudur.", AboutId = 1 },
+                new Box() { Id = 2, CreatedTime = DateTime.Now, Header = "Güncel eğitim programı ve ders içerikleri", Text = "Dünyadaki eğilime uygun olarak bir endüstri mühendisine kazandırılması gereken yetkinlikler dikkate alınarak eğitim programı tasarlanmıştır.", AboutId = 1 },
+                new Box() { Id = 3, CreatedTime = DateTime.Now, Header = "Öğrencinin sosyal, kültürel ve spor faaliyetleri", Text = "Kampüsümüzde devlet tiyatrosu mevcut olup burada tiyatro ve sanatsal etkinlikler düzenlenmektedir. Yine olimpik yüzme havuzunu, dans salonlarını, kapalı spor salonunu, tekno fitness salonunu içeren Türkiye’nin en büyük kapalı spor merkezi üniversitemizde mevcuttur.", AboutId = 1 }
+            );
+
+            // Pictures
+            modelBuilder.Entity<Picture>().HasData(
+                new Picture() { Id = 1, CreatedTime = DateTime.Now, Url = "https://studyinturkey.net/wp-content/uploads/2021/01/duzce-universitesi-kampus.jpg" },
+                new Picture() { Id = 2, CreatedTime = DateTime.Now, Url = "https://static.daktilo.com/sites/622/uploads/2021/06/07/whatsapp-image-2021-06-07-at-164152-1.jpeg" },
+                new Picture() { Id = 3, CreatedTime = DateTime.Now, Url = "https://pbs.twimg.com/media/FDa851KWUAEoNpt?format=jpg&name=large" }
+            );
+
+            // Videos
+            modelBuilder.Entity<Video>().HasData(
+                new Video() { Id = 1, CreatedTime = DateTime.Now, Title = "DÜ Tanıtım Filmi 2021", Url = "mSS-tfXDrT4" },
+                new Video() { Id = 2, CreatedTime = DateTime.Now, Title = "DÜ Tanıtım Filmi 2018", Url = "-myyQEpicLY" },
+                new Video() { Id = 3, CreatedTime = DateTime.Now, Title = "DÜ 15. Yıl Özel Belgeseli", Url = "z2hqyvV6Me0" }
             );
         }
     }
