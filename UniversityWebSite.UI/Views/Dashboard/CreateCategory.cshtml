@@ -37,19 +37,19 @@
             break;
 
         case "academic":
-
+            @await Component.InvokeAsync("AcademicPageCreate");
             break;
 
         case "research":
-
+            @await Component.InvokeAsync("ResearchPageCreate");
             break;
 
         case "specialization":
-
+            @await Component.InvokeAsync("SpecializationPageCreate");
             break;
 
         case "fastAccess":
-
+            @await Component.InvokeAsync("FastAccessPageCreate");
             break;
 
         default:
