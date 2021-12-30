@@ -9,7 +9,7 @@ using UniversityWebSite.Entities.Concrete;
 
 namespace UniversityWebSite.DataAccess.Concrete.Repositories
 {
-    public class BoxRepository : EfGenericRepository<Keyword>, IBoxRepository
+    public class BoxRepository : EfGenericRepository<Box>, IBoxRepository
     {
         EfContext _context;
         public BoxRepository(EfContext context) : base(context)
