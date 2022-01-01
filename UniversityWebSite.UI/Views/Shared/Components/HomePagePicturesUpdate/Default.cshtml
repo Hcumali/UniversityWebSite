@@ -1,9 +1,9 @@
 ﻿@model Picture
 
-<div class="contentIn">
+<div class="contentInHome">
     <div class="form-group">
         <label>Görsel URL</label>
-        <textarea class="form-control" id="PictureTitle" rows="3" cols="75" onchange="changed(@ViewData["id"], this.value)">@Model.Url</textarea>
+        <textarea class="form-control" id="PictureURL" rows="3" cols="75" onchange="changed(@ViewData["id"], this.value)">@Model.Url</textarea>
     </div>
 
     <div class="form-group">
@@ -24,7 +24,7 @@
     var pictureUrl;
 
     window.onload = function () {
-        defaultValue = document.getElementById("PictureTitle").value;
+        defaultValue = document.getElementById("PictureURL").value;
     }
 
     debugger;
@@ -36,8 +36,6 @@
 
     function sendForm() {
         document.getElementById("error").innerHTML = "";
-
-        debugger;
 
         if (pictureUrl == undefined || pictureUrl == defaultValue) {
             alert("Herhangi bir değişiklik yapmadınız!");

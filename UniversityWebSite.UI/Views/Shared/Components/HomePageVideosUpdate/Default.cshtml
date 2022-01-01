@@ -1,9 +1,30 @@
 ﻿@model Video
 
-<div class="contentIn">
+<div class="contentInHome">
+
+    <div class="form-group">
+        <label>Video Başlığı</label>
+        <input type="text" class="form-control" id="VideoTitle" value="@Model.Title" onchange="changedTitle(@ViewData["id"], this.value)">
+    </div>
+
     <div class="form-group">
         <label>Video URL</label>
-        <input type="text" class="form-control" id="VideoUrl" asp-for="Url" onchange="changed(@ViewData["id"], this.value)">
+        <textarea class="form-control" id="VideoURL" rows="3" cols="75" onchange="changedURL(@ViewData["id"], this.value)">@Model.Url</textarea>
+        <h5 style="color:gray">Yalnızca youtube linkleri geçerlidir.</h5>
+    </div>
+
+    @{
+        int startIndex = Model.Url.IndexOf("watch?v=");
+        var URL = Model.Url.Substring(startIndex);
+        var croppedURL = URL.Substring(8);
+        string youtubeURL = "https://www.youtube.com/embed/" + croppedURL;
+    }
+
+    <div class="form-group">
+        <label>ÖNİZLEME</label>
+        <iframe width="600" height="450" frameborder="0"
+                src=@youtubeURL allowfullscreen>
+        </iframe>
     </div>
 
     <div class="row justify-content-center">
@@ -13,15 +34,63 @@
     <div id="error"></div>
 </div>
 
-
 <script>
-    function changed(id, changedValue) {
+    var defaultURL;
+    var defaultTitle;
 
+    var videoId;
+    var videoTitle;
+    var videoUrl;
+
+    window.onload = function () {
+        defaultTitle = document.getElementById("VideoTitle").value;
+        defaultURL = document.getElementById("VideoURL").value;
+
+        videoTitle = defaultTitle;
+        videoUrl = defaultURL;
     }
-</script>
 
-<script>
+    debugger;
+
+    function changedTitle(id, changedValue) {
+        videoId = id;
+        videoTitle = changedValue;
+    }
+
+    function changedURL(id, changedValue) {
+        videoId = id;
+        videoUrl = changedValue;
+    }
+
     function sendForm() {
-        console.log("working");
+        document.getElementById("error").innerHTML = "";
+
+        debugger;
+
+        if (videoId == undefined || (videoTitle == defaultTitle && videoUrl == defaultURL)) {
+            alert("Herhangi bir değişiklik yapmadınız!");
+            return;
+        }
+        else {
+            if (videoUrl == "" || videoUrl.length < 6 || !(videoUrl.includes("youtube"))) {
+                document.getElementById("error").innerHTML = "Geçerli bir URL giriniz.";
+                return;
+            }
+            else if (videoTitle == "" || videoTitle.length < 3) {
+                document.getElementById("error").innerHTML = "Video başlığı boş veya 3 haneden küçük olamaz.";
+                return;
+            }
+        }
+
+        $.ajax({
+            url: "/Dashboard/UpdateVideo",
+            type: "POST",
+            data: {
+                Id: videoId, Title: videoTitle, Url: videoUrl, CreatedTime: "@ViewData["CreatedTime"]"
+            },
+            success: function () {
+                window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
+            }
+        });
     }
 </script>

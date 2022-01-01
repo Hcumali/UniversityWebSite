@@ -38,7 +38,21 @@ body {
     padding-right: 10%;
 }
 
+.contentInHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 1%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
 .form-group {
+    margin: 16px;
+}
+
+.contentInHome .form-group {
     margin: 16px;
     display: flex;
     flex-direction: column;
@@ -55,6 +69,11 @@ body {
 }
 
 .contentIn label {
+    font-weight: 600;
+    font-size: medium;
+}
+
+.contentInHome label {
     font-weight: 600;
     font-size: medium;
 }
