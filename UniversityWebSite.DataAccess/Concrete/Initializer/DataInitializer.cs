@@ -160,9 +160,9 @@ namespace UniversityWebSite.DataAccess.Concrete.Initializer
 
             // Videos
             modelBuilder.Entity<Video>().HasData(
-                new Video() { Id = 1, CreatedTime = DateTime.Now, Title = "DÜ Tanıtım Filmi 2021", Url = "mSS-tfXDrT4" },
-                new Video() { Id = 2, CreatedTime = DateTime.Now, Title = "DÜ Tanıtım Filmi 2018", Url = "-myyQEpicLY" },
-                new Video() { Id = 3, CreatedTime = DateTime.Now, Title = "DÜ 15. Yıl Özel Belgeseli", Url = "z2hqyvV6Me0" }
+                new Video() { Id = 1, CreatedTime = DateTime.Now, Title = "DÜ Tanıtım Filmi 2021", Url = "youtube.com/watch?v=mSS-tfXDrT4" }, 
+                new Video() { Id = 2, CreatedTime = DateTime.Now, Title = "DÜ Tanıtım Filmi 2018", Url = "youtube.com/watch?v=-myyQEpicLY" },
+                new Video() { Id = 3, CreatedTime = DateTime.Now, Title = "DÜ 15. Yıl Özel Belgeseli", Url = "youtube.com/watch?v=z2hqyvV6Me0" }
             );
         }
     }
