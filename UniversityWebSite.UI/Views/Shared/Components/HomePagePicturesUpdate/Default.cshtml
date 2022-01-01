@@ -1,0 +1,66 @@
+﻿@model Picture
+
+<div class="contentIn">
+    <div class="form-group">
+        <label>Görsel URL</label>
+        <textarea class="form-control" id="PictureTitle" rows="3" cols="75" onchange="changed(@ViewData["id"], this.value)">@Model.Url</textarea>
+    </div>
+
+    <div class="form-group">
+        <label>ÖNİZLEME</label>
+        <img width="600" height="450" src="@Model.Url">
+    </div>
+
+    <div class="row justify-content-center">
+        <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Güncelle</button>
+    </div>
+
+    <div id="error"></div>
+</div>
+
+<script>
+    var defaultValue;
+    var pictureId;
+    var pictureUrl;
+
+    window.onload = function () {
+        defaultValue = document.getElementById("PictureTitle").value;
+    }
+
+    debugger;
+
+    function changed(id, changedValue) {
+        pictureId = id;
+        pictureUrl = changedValue;
+    }
+
+    function sendForm() {
+        document.getElementById("error").innerHTML = "";
+
+        debugger;
+
+        if (pictureUrl == undefined || pictureUrl == defaultValue) {
+            alert("Herhangi bir değişiklik yapmadınız!");
+            return;
+        }
+        else {
+            if (pictureUrl == "" || pictureUrl.length < 6 || !(pictureUrl.includes("http")) ) {
+                document.getElementById("error").innerHTML = "Geçerli bir URL giriniz.";
+                return;
+            }
+        }
+
+        $.ajax({
+            url: "/Dashboard/UpdatePicture",
+            type: "POST",
+            data: {
+                Id: pictureId, Url: pictureUrl, CreatedTime: "@ViewData["CreatedTime"]"
+            },
+            success: function () {
+                window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
+            }
+        });
+    }
+</script>
+
+

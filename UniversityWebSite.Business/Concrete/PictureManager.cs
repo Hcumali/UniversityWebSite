@@ -23,6 +23,11 @@ namespace UniversityWebSite.Business.Concrete
             return _pictureRepository.GetAll();
         }
 
+        public Picture GetPictureById(int id)
+        {
+            return _pictureRepository.Get(x => x.Id == id);
+        }
+
         public void UpdatePicture(Picture picture)
         {
             _pictureRepository.Update(picture);

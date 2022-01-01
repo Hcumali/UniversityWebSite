@@ -52,8 +52,6 @@
     var subtitles = [];
 
     function changeSubtitle(id, name) {
-        debugger;
-
         let isHaveId = subtitles.find(x => x.Id == id);
 
         if (isHaveId != undefined) {
@@ -75,9 +73,6 @@
     function sendForm() {
         document.getElementById("error").innerHTML = "";
         var navBarHeader = document.getElementById("navBarHeader").value;
-
-        debugger;
-
 
         if (categoryName != undefined) {
             if (categoryName == "" || categoryName.length < 3) {
@@ -112,5 +107,5 @@
                 }
             });
         }
-} // end of function
+    } 
 </script>

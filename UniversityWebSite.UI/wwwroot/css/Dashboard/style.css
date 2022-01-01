@@ -38,8 +38,12 @@ body {
     padding-right: 10%;
 }
 
-.form-group{
-    margin: 15px;
+.form-group {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .contentIn h1{

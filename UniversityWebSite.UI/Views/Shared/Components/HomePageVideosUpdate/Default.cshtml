@@ -1,0 +1,27 @@
+﻿@model Video
+
+<div class="contentIn">
+    <div class="form-group">
+        <label>Video URL</label>
+        <input type="text" class="form-control" id="VideoUrl" asp-for="Url" onchange="changed(@ViewData["id"], this.value)">
+    </div>
+
+    <div class="row justify-content-center">
+        <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Güncelle</button>
+    </div>
+
+    <div id="error"></div>
+</div>
+
+
+<script>
+    function changed(id, changedValue) {
+
+    }
+</script>
+
+<script>
+    function sendForm() {
+        console.log("working");
+    }
+</script>

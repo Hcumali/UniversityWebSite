@@ -14,11 +14,26 @@ namespace UniversityWebSite.UI.Controllers
     {
         ICategoryService _categoryService;
         ISubtitleService _subtitleService;
-        public DashboardController(ICategoryService categoryService, ISubtitleService subtitleService)
+        IKeywordService _keywordService;
+        IPictureService _pictureService;
+        IVideoService _videoService;
+
+        public DashboardController
+            (
+                ICategoryService categoryService,
+                ISubtitleService subtitleService,
+                IKeywordService keywordService,
+                IPictureService pictureService,
+                IVideoService videoService
+            )
         {
             _categoryService = categoryService;
             _subtitleService = subtitleService;
+            _keywordService = keywordService;
+            _pictureService = pictureService;
+            _videoService = videoService;
         }
+
 
         public IActionResult Index()
         {
@@ -104,6 +119,25 @@ namespace UniversityWebSite.UI.Controllers
 
             string stringRoute = "/Dashboard/ReadCategory?page=" + page;
             return Redirect(stringRoute);
+        }
+
+
+        [HttpPost]
+        public void UpdateKeyword(Keyword keyword)
+        {
+            _keywordService.UpdateKeyword(keyword);
+        }
+
+        [HttpPost]
+        public void UpdatePicture(Picture picture)
+        {
+            _pictureService.UpdatePicture(picture);
+        }
+
+        [HttpPost]
+        public void UpdateVideo(Video video)
+        {
+            _videoService.UpdateVideo(video);
         }
 
         public async Task<IActionResult> Logout()

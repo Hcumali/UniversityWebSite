@@ -22,6 +22,11 @@ namespace UniversityWebSite.Business.Concrete
             return _keywordRepository.GetAll();
         }
 
+        public Keyword GetKeywordById(int id)
+        {
+            return _keywordRepository.Get(x => x.Id == id);
+        }
+
         public void UpdateKeyword(Keyword keyword)
         {
             _keywordRepository.Update(keyword);

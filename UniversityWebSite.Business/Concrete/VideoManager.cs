@@ -23,6 +23,11 @@ namespace UniversityWebSite.Business.Concrete
             return _videoRepository.GetAll();
         }
 
+        public Video GetVideoById(int id)
+        {
+            return _videoRepository.Get(x => x.Id == id);
+        }
+
         public void UpdateVideo(Video video)
         {
             _videoRepository.Update(video);

@@ -18,28 +18,16 @@
             break;
 
 
-        case "home-about":
-
-            break;
-
-        case "home-statistics":
-
-            break;
-
         case "home-keywords":
-
+            @await Component.InvokeAsync("HomePageKeywordsUpdate");
             break;
 
         case "home-videos":
-
+            @await Component.InvokeAsync("HomePageVideosUpdate");
             break;
 
         case "home-pictures":
-
-            break;
-
-        case "home-contact":
-
+            @await Component.InvokeAsync("HomePagePicturesUpdate");
             break;
 
 

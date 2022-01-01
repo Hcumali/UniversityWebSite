@@ -1,0 +1,58 @@
+﻿@model Keyword
+
+<div class="contentIn">
+    <div class="form-group">
+        <label>Anahtar Kelime</label>
+        <input type="text" class="form-control" id="KeywordTitle" asp-for="Title" onchange="changed(@ViewData["id"], this.value)">
+    </div>
+
+    <div class="row justify-content-center">
+        <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Güncelle</button>
+    </div>
+
+    <div id="error"></div>
+</div>
+
+
+<script>
+    var defaultValue;
+    var keywordId;
+    var keywordTitle;
+
+    window.onload = function () {
+        defaultValue = document.getElementById("KeywordTitle").value;
+    }
+
+    function changed(id, changedValue) {
+        keywordId = id;
+        keywordTitle = changedValue;
+    }
+
+    function sendForm() {
+        document.getElementById("error").innerHTML = "";
+
+        debugger;
+
+        if (keywordTitle == undefined || keywordTitle == defaultValue) {
+            alert("Herhangi bir değişiklik yapmadınız!");
+            return;
+        }
+        else {
+            if (keywordTitle == "" || keywordTitle.length < 3) {
+                document.getElementById("error").innerHTML = "Anahtar kelime adı boş veya 3 karakterden küçük olamaz.";
+                return;
+            }
+        }
+
+        $.ajax({
+            url: "/Dashboard/UpdateKeyword",
+            type: "POST",
+            data: {
+                Id: keywordId, Title: keywordTitle, CreatedTime: "@ViewData["CreatedTime"]"
+            },
+            success: function () {
+                window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
+            }
+        });
+    }
+</script>

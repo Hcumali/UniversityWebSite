@@ -27,7 +27,7 @@
                         <img width="180" height="135" src="@Model[i].Url">
                     </td>
                     <td>
-                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdatePicture" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-edit"></span>Güncelle</a>
+                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdateCategory" asp-route-page="@ViewData["pageName"]" asp-route-id="@Model[i].Id"><i class="fas fa-edit"></i> Güncelle</a>
                     </td>
                 </tr>
             }

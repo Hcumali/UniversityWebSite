@@ -9,6 +9,7 @@ namespace UniversityWebSite.Business.Abstract
 {
     public interface IPictureService
     {
+        Picture GetPictureById(int id);
         IEnumerable<Picture> GetAllPicture();
         void UpdatePicture(Picture picture);
     }

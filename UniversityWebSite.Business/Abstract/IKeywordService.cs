@@ -9,6 +9,7 @@ namespace UniversityWebSite.Business.Abstract
 {
     public interface IKeywordService
     {
+        Keyword GetKeywordById(int id);
         IEnumerable<Keyword> GetAllKeyword();
         void UpdateKeyword(Keyword keyword);
     }

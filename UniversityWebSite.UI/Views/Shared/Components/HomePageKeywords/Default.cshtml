@@ -23,7 +23,7 @@
                     <td>@Model[i].UpdatedTime</td>
                     <td>@Model[i].Title</td>
                     <td>
-                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdateKeyword" asp-route-id="@Model[i].Id"><span class="glyphicon glyphicon-edit"></span>Güncelle</a>
+                        <a class="btn btn-info btn-sm" asp-controller="Dashboard" asp-action="UpdateCategory" asp-route-page="@ViewData["pageName"]" asp-route-id="@Model[i].Id"><i class="fas fa-edit"></i> Güncelle</a>
                     </td>
                 </tr>
             }
