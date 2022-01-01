@@ -3,11 +3,11 @@ using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
-    public class HomeStatisticsPageViewComponent : ViewComponent
+    public class HomePageStatisticsViewComponent : ViewComponent
     {
         IStatisticService _statisticService;
 
-        public HomeStatisticsPageViewComponent(IStatisticService statisticService)
+        public HomePageStatisticsViewComponent(IStatisticService statisticService)
         {
             _statisticService = statisticService;
         }

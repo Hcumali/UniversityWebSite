@@ -32,6 +32,7 @@ namespace UniversityWebSite.UI.Controllers
                 IContactService contactService 
             )
         {
+            // Dependency injection
             _categoryService = categoryService;
             _aboutService = aboutService;
             _statisticService = statisticService;

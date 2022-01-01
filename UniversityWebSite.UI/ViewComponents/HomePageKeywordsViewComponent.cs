@@ -3,11 +3,11 @@ using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
-    public class HomeKeywordsPageViewComponent : ViewComponent
+    public class HomePageKeywordsViewComponent : ViewComponent
     {
         IKeywordService _keywordService;
 
-        public HomeKeywordsPageViewComponent(IKeywordService keywordService)
+        public HomePageKeywordsViewComponent(IKeywordService keywordService)
         {
             _keywordService = keywordService;
         }

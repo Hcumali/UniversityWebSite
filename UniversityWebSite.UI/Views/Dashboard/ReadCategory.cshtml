@@ -7,50 +7,40 @@
 @{
     switch (pageName)
     {
+        case "university":
+        case "academic":
+        case "research":
+        case "specialization":
+        case "fastAccess":
+
+            @await Component.InvokeAsync("ReadCategory");
+            break;
+
+
         case "home-about":
-            @await Component.InvokeAsync("HomeAboutPage");
+            @await Component.InvokeAsync("HomePageAbout");
             break;
 
         case "home-statistics":
-            @await Component.InvokeAsync("HomeStatisticsPage");
+            @await Component.InvokeAsync("HomePageStatistics");
             break;
 
         case "home-keywords":
-            @await Component.InvokeAsync("HomeKeywordsPage");
+            @await Component.InvokeAsync("HomePageKeywords");
             break;
 
         case "home-videos":
-            @await Component.InvokeAsync("HomeVideosPage");
+            @await Component.InvokeAsync("HomePageVideos");
             break;
 
         case "home-pictures":
-            @await Component.InvokeAsync("HomePicturesPage");
+            @await Component.InvokeAsync("HomePagePictures");
             break;
 
         case "home-contact":
-            @await Component.InvokeAsync("HomeContactPage");
+            @await Component.InvokeAsync("HomePageContact");
             break;
 
-
-        case "university":
-            @await Component.InvokeAsync("UniversityPage");
-            break;
-
-        case "academic":
-            @await Component.InvokeAsync("AcademicPage");
-            break;
-
-        case "research":
-            @await Component.InvokeAsync("ResearchPage");
-            break;
-
-        case "specialization":
-            @await Component.InvokeAsync("SpecializationPage");
-            break;
-
-        case "fastAccess":
-            @await Component.InvokeAsync("FastAccessPage");
-            break;
 
         default:
             <h1>Can't get the pageName</h1>

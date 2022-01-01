@@ -1,5 +1,10 @@
 ﻿@model Category
 
+@{
+    var enumString = ViewData["pageName"].ToString();
+    var enumName = (UniversityWebSite.Entities.Enums.NavBarHeader)UniversityWebSite.Business.Concrete.EnumManager.EnumParser(enumString);
+}
+
 <div class="contentIn">
     <div>
         <h1>Kategori Güncelle</h1>
@@ -7,7 +12,7 @@
         <div class="form-group">
             <label>Kategori Üst Başlığı</label>
             <select class="form-control" id="navBarHeader">
-                <option>@UniversityWebSite.Entities.Enums.NavBarHeader.University</option>
+                <option>@enumName</option>
             </select>
         </div>
 
@@ -54,7 +59,7 @@
         if (isHaveId != undefined) {
             // Remove the old value for same id
             subtitles = subtitles.filter(value => value !== isHaveId);
-            // Then update 
+            // Then update
             subtitles.push({ Id: id, Name: name });
         }
         else {
@@ -103,7 +108,7 @@
                     CategoryId: categoryId, CategoryName: categoryName, Subtitles: subtitles, NavBarHeader: navBarHeader, CreatedTime: "@ViewData["CreatedTime"]"
                 },
                 success: function (result) {
-                    window.location = "/Dashboard/ReadCategory?page=university";
+                    window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
                 }
             });
         }

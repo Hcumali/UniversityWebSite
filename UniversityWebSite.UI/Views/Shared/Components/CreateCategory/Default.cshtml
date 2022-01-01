@@ -1,5 +1,10 @@
 ﻿@model CreateCategoryForm
 
+@{ 
+    var enumString = ViewData["pageName"].ToString();
+    var enumName = (UniversityWebSite.Entities.Enums.NavBarHeader)UniversityWebSite.Business.Concrete.EnumManager.EnumParser(enumString);
+}
+
 <div class="contentIn">
     <div>
         <h1>Kategori Oluştur</h1>
@@ -7,7 +12,7 @@
         <div class="form-group">
             <label>Kategori Üst Başlığı</label>
             <select class="form-control" id="navBarHeader">
-                <option>@UniversityWebSite.Entities.Enums.NavBarHeader.Research</option>
+                <option>@enumName</option>
             </select>
         </div>
 
@@ -80,9 +85,8 @@
                 CategoryName: categoryName, NavBarHeader: navBarHeader, Subtitles: subtitles
             },
             success: function (result) {
-                window.location = "/Dashboard/ReadCategory?page=research";
+                window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
             }
         });
-
-    } // end of function
+    } 
 </script>

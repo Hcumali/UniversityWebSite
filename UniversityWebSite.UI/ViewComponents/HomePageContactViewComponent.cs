@@ -3,11 +3,11 @@ using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
-    public class HomeContactPageViewComponent : ViewComponent
+    public class HomePageContactViewComponent : ViewComponent
     {
         IContactService _contactService;
 
-        public HomeContactPageViewComponent(IContactService contactService)
+        public HomePageContactViewComponent(IContactService contactService)
         {
             _contactService = contactService;
         }

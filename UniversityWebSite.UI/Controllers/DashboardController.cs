@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using UniversityWebSite.Entities.Concrete;
 using UniversityWebSite.Business.Abstract;
 using UniversityWebSite.UI.Models;
+using UniversityWebSite.Business.Concrete;
 
 namespace UniversityWebSite.UI.Controllers
 {
@@ -45,7 +43,7 @@ namespace UniversityWebSite.UI.Controllers
             Category category = new Category();
 
             category.Name = createCategoryForm.CategoryName;
-            category.NavBarHeader = (Entities.Enums.NavBarHeader)EnumParser(createCategoryForm.NavBarHeader);
+            category.NavBarHeader = (Entities.Enums.NavBarHeader)EnumManager.EnumParser(createCategoryForm.NavBarHeader);
             _categoryService.CreateCategory(category);
 
             if(createCategoryForm.Subtitles != null)
@@ -58,26 +56,6 @@ namespace UniversityWebSite.UI.Controllers
                     subtitle.CategoryId = Category.Id;
                     _subtitleService.CreateSubtitle(subtitle);
                 }
-            }
-        }
-
-        public Enum EnumParser(string expression)
-        {
-            expression = expression.ToLower();
-            switch (expression)
-            {
-                case "university":
-                    return UniversityWebSite.Entities.Enums.NavBarHeader.University;
-                case "academic":
-                    return UniversityWebSite.Entities.Enums.NavBarHeader.Academic;
-                case "research":
-                    return UniversityWebSite.Entities.Enums.NavBarHeader.Research;
-                case "specialization":
-                    return UniversityWebSite.Entities.Enums.NavBarHeader.Specialization;
-                case "fastaccess":
-                    return UniversityWebSite.Entities.Enums.NavBarHeader.FastAccess;
-                default:
-                    throw new Exception("Something went wrong");
             }
         }
 
@@ -97,7 +75,7 @@ namespace UniversityWebSite.UI.Controllers
                 {
                     Id = updateCategoryForm.CategoryId,
                     CreatedTime = updateCategoryForm.CreatedTime,
-                    NavBarHeader = (Entities.Enums.NavBarHeader)EnumParser(updateCategoryForm.NavBarHeader),
+                    NavBarHeader = (Entities.Enums.NavBarHeader)EnumManager.EnumParser(updateCategoryForm.NavBarHeader),
                     Name = updateCategoryForm.CategoryName
                 };
                 _categoryService.UpdateCategory(category);

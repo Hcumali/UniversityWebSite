@@ -3,11 +3,11 @@ using UniversityWebSite.Business.Abstract;
 
 namespace UniversityWebSite.UI.ViewComponents
 {
-    public class HomeVideosPageViewComponent : ViewComponent
+    public class HomePageVideosViewComponent : ViewComponent
     {
         IVideoService _videoService;
 
-        public HomeVideosPageViewComponent(IVideoService videoService)
+        public HomePageVideosViewComponent(IVideoService videoService)
         {
             _videoService = videoService;
         }

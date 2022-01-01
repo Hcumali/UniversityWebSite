@@ -8,6 +8,16 @@
 @{
     switch (pageName)
     {
+        case "university":
+        case "academic":
+        case "research":
+        case "specialization":
+        case "fastAccess":
+
+            @await Component.InvokeAsync("UpdateCategory");
+            break;
+
+
         case "home-about":
 
             break;
@@ -32,26 +42,6 @@
 
             break;
 
-
-        case "university":
-            @await Component.InvokeAsync("UniversityPageUpdate");
-            break;
-
-        case "academic":
-            @await Component.InvokeAsync("AcademicPageUpdate");
-            break;
-
-        case "research":
-            @await Component.InvokeAsync("ResearchPageUpdate");
-            break;
-
-        case "specialization":
-            @await Component.InvokeAsync("SpecializationPageUpdate");
-            break;
-
-        case "fastAccess":
-            @await Component.InvokeAsync("FastAccessPageUpdate");
-            break;
 
         default:
             <h1>Can't get the pageName</h1>
