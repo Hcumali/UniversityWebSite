@@ -7,16 +7,32 @@
             <p>TANITIM FİLMLERİ</p>
         </div>
 
+        @{ 
+            List<string> youtubeURLs = new List<string>();
+            List<string> youtubeTitles = new List<string>();
+
+            for (int i = 0; i < Model.Videos.Count; i++)
+            {
+                int startIndex = Model.Videos[i].Url.IndexOf("watch?v=");
+                var URL = Model.Videos[i].Url.Substring(startIndex);
+                var croppedURL = URL.Substring(8);
+                string youtubeURL = "https://www.youtube.com/embed/" + croppedURL;
+
+                youtubeURLs.Add(youtubeURL);
+                youtubeTitles.Add(Model.Videos[i].Title);
+            }
+        }
+
         <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="course-item">
                     <div class="course-content">
-                        <h4 class="text-center">DÜ Tanıtım Filmi 2021</h4>
+                        <h4 class="text-center">@youtubeTitles[0]</h4>
                     </div>
 
                     <iframe width="400" height="300" frameborder="0"
-                            src="https://www.youtube.com/embed/mSS-tfXDrT4" allowfullscreen>
+                            src = @youtubeURLs[0] allowfullscreen>
                     </iframe>
                 </div>
             </div> <!-- End Course Item-->
@@ -24,11 +40,11 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                 <div class="course-item">
                     <div class="course-content">
-                        <h4 class="text-center">DÜ Tanıtım Filmi 2018</h4>
+                        <h4 class="text-center">@youtubeTitles[1]</h4>
                     </div>
 
                     <iframe width="400" height="300" frameborder="0"
-                            src="https://www.youtube.com/embed/-myyQEpicLY" allowfullscreen>
+                            src = @youtubeURLs[1] allowfullscreen>
                     </iframe>
                 </div>
             </div> <!-- End Course Item-->
@@ -36,11 +52,11 @@
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                 <div class="course-item">
                     <div class="course-content">
-                        <h4 class="text-center">DÜ 15. Yıl Özel Belgeseli</h4>
+                        <h4 class="text-center">@youtubeTitles[2]</h4>
                     </div>
 
                     <iframe width="400" height="300" frameborder="0"
-                            src="https://www.youtube.com/embed/z2hqyvV6Me0" allowfullscreen>
+                            src = @youtubeURLs[2] allowfullscreen>
                     </iframe>
                 </div>
             </div> <!-- End Course Item-->

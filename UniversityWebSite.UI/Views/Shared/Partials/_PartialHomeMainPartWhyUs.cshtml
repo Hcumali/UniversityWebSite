@@ -7,10 +7,7 @@
                 <div class="content">
                     <h3>Neden Biz?</h3>
                     <p>
-                        Üniversitemizde öğrencilerimizin istedikleri alanda özelleşmelerine olanak sağlayan geniş yelpazeli seçmeli ders seçenekleri sunulmaktadır.
-                        Dileyen öğrencilerimiz diğer bölüm programlarıyla yandal ve çift anadal eğitimi alabilme imkânına sahiptir. 
-                        Öğrencilerimize ilaveten Erasmus Öğrenci Değişim Programı kapsamında yurt dışında anlaşmalı olduğumuz üniversitelerde burslu eğitim alma imkânı da sağlanmaktadır.
-                        Bu program dahilinde öğrencilerimiz eğitimlerine bir veya iki dönem Avrupa’da devam edebilmektedirler.
+                        @Model.About.Paragraph
                     </p>
                 </div>
             </div>
@@ -20,22 +17,22 @@
                         <div class="col-xl-4 d-flex align-items-stretch">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="bx bx-receipt"></i>
-                                <h4>Nitelikli akademik kadro</h4>
-                                <p>Mesleki bilgileri kazanım için bir bölümdeki en önemli unsur öğretim kadrosudur.</p>
+                                <h4>@Model.About.Boxes[0].Header</h4>
+                                <p>@Model.About.Boxes[0].Text</p>
                             </div>
                         </div>
                         <div class="col-xl-4 d-flex align-items-stretch">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="bx bx-cube-alt"></i>
-                                <h4>Güncel eğitim programı ve ders içerikleri</h4>
-                                <p>Dünyadaki eğilime uygun olarak bir endüstri mühendisine kazandırılması gereken yetkinlikler dikkate alınarak eğitim programı tasarlanmıştır.</p>
+                                <h4>@Model.About.Boxes[1].Header</h4>
+                                <p>@Model.About.Boxes[1].Text</p>
                             </div>
                         </div>
                         <div class="col-xl-4 d-flex align-items-stretch">
                             <div class="icon-box mt-4 mt-xl-0">
                                 <i class="bx bx-images"></i>
-                                <h4>Öğrencinin sosyal, kültürel ve spor faaliyetleri</h4>
-                                <p>Kampüsümüzde devlet tiyatrosu mevcut olup burada tiyatro ve sanatsal etkinlikler düzenlenmektedir. Yine olimpik yüzme havuzunu, dans salonlarını, kapalı spor salonunu, tekno fitness salonunu içeren Türkiye’nin en büyük kapalı spor merkezi üniversitemizde mevcuttur.</p>
+                                <h4>@Model.About.Boxes[2].Header</h4>
+                                <p>@Model.About.Boxes[2].Text</p>
                             </div>
                         </div>
                     </div>
