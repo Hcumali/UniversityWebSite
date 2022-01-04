@@ -16,22 +16,22 @@
 
         <div class="form-group">
             <label>Öğrenci Sayısı</label>
-            <input type="text" class="form-control" value="@Model.NumberOfStudent">
+            <input type="number" class="form-control" id="student" min="1" max="999999" onkeyup="if(parseInt(this.value)>999999){ this.value =999999; return false; }" value="@Model.NumberOfStudent" onchange="changeStudent(this.value)" >
         </div>
 
         <div class="form-group">
             <label>Akademisyen Sayısı</label>
-            <input type="text" class="form-control" value="@Model.NumberOfTeacher">
+            <input type="number" class="form-control" id="teacher" min="1" max="999999" onkeyup="if(parseInt(this.value)>999999){ this.value =999999; return false; }" value="@Model.NumberOfTeacher" onchange="changeTeacher(this.value)" >
         </div>
 
         <div class="form-group">
             <label>Fakülte Sayısı</label>
-            <input type="text" class="form-control" value="@Model.NumberOfFaculty">
+            <input type="number" class="form-control" id="faculty" min="1" max="999999" onkeyup="if(parseInt(this.value)>999999){ this.value =999999; return false; }" value="@Model.NumberOfFaculty" onchange="changeFaculty(this.value)" >
         </div>
 
         <div class="form-group">
             <label>Proje Sayısı</label>
-            <input type="text" class="form-control" value="@Model.NumberOfProject">
+            <input type="number" class="form-control" id="project" min="1" max="999999" onkeyup="if(parseInt(this.value)>999999){ this.value =999999; return false; }" value="@Model.NumberOfProject" onchange="changeProject(this.value)" >
         </div>
 
 
@@ -45,36 +45,67 @@
 
 
 <script>
-    //sadece sayı girilsinve hane sınırı
-    // Variable Definition
+    var statisticId = @Model.Id;
 
-    window.onload = function () {
-        // Default Value assign
+    var defaultNumberOfStudent = document.getElementById("student").value;
+    var defaultNumberOfTeacher = document.getElementById("teacher").value;
+    var defaultNumberOfFaculty = document.getElementById("faculty").value;
+    var defaultNumberOfProject = document.getElementById("project").value;
+
+    var numberOfStudent = document.getElementById("student").value;
+    var numberOfTeacher = document.getElementById("teacher").value;
+    var numberOfFaculty = document.getElementById("faculty").value;
+    var numberOfProject = document.getElementById("project").value;
+
+    function changeStudent(number) {
+        numberOfStudent = number;
     }
 
-    function changed(id, changedValue) {
+    function changeTeacher(number) {
+        numberOfTeacher = number;
+    }
 
+    function changeFaculty(number) {
+        numberOfFaculty = number;
+    }
+
+    function changeProject(number) {
+        numberOfProject = number;
     }
 
     function sendForm() {
         document.getElementById("error").innerHTML = "";
 
-        if (false) {
+        debugger;
+
+        if (defaultNumberOfStudent == numberOfStudent && defaultNumberOfTeacher == numberOfTeacher && defaultNumberOfFaculty == numberOfFaculty && defaultNumberOfProject == numberOfProject) {
             alert("Herhangi bir değişiklik yapmadınız!");
             return;
         }
         else {
-            if (false) {
-                document.getElementById("error").innerHTML = "Anahtar kelime adı boş veya 3 karakterden küçük olamaz.";
+            if (numberOfStudent == "") {
+                document.getElementById("error").innerHTML = "Öğrenci sayısı boş olamaz.";
+                return;
+            }
+            if (numberOfTeacher == "") {
+                document.getElementById("error").innerHTML = "Akademisyen sayısı boş olamaz.";
+                return;
+            }
+            if (numberOfFaculty == "") {
+                document.getElementById("error").innerHTML = "Fakülte sayısı boş olamaz.";
+                return;
+            }
+            if (numberOfProject == "") {
+                document.getElementById("error").innerHTML = "Proje sayısı boş olamaz.";
                 return;
             }
         }
 
         $.ajax({
-            url: "/Dashboard/UpdateAbout",
+            url: "/Dashboard/UpdateStatistic",
             type: "POST",
             data: {
-                Id: keywordId, Title: keywordTitle, CreatedTime: "@ViewData["CreatedTime"]"
+                Id: statisticId, CreatedTime: "@ViewData["CreatedTime"]", NumberOfStudent: numberOfStudent, NumberOfFaculty: numberOfFaculty, NumberOfProject: numberOfProject, NumberOfTeacher: numberOfTeacher
             },
             success: function () {
                 window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";

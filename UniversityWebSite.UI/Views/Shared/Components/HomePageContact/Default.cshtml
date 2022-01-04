@@ -16,17 +16,19 @@
 
         <div class="form-group">
             <label>E-mail</label>
-            <input type="text" class="form-control" value="@Model.Email" required>
+            <input type="email" class="form-control" id="mail" value="@Model.Email" onchange="changedMail(this.value)" required>
         </div>
 
         <div class="form-group">
             <label>Telefon Numarası</label>
-            <input type="text" class="form-control" value="@Model.Phone" required>
+            <input type="text" pattern="\d*" maxlength="16" class="form-control" id="phone" value="@Model.Phone" onchange="changedPhone(this.value)" required>
+            <label style="color:gray; font-size:14px">+XX XXX XXX XX XX</label>
         </div>
 
         <div class="form-group">
             <label>Faks Numarası</label>
-            <input type="text" class="form-control" value="@Model.Fax" required>
+            <input type="text" pattern="\d*" maxlength="17" class="form-control" id="fax" value="@Model.Fax" onchange="changedFax(this.value)" required>
+            <label style="color:gray; font-size:14px">+XX (XXX) XXX XX XX</label>
         </div>
 
 
@@ -39,35 +41,47 @@
 </div>
 
 <script>
-    // Variable Definition
+    var contactId = @Model.Id;
 
-    window.onload = function () {
-        // Default Value assign
+    var defaultMail = document.getElementById("mail").value;
+    var defaultFax = document.getElementById("phone").value;
+    var defaultPhone = document.getElementById("fax").value;
+
+    var mail = document.getElementById("mail").value;
+    var fax = document.getElementById("phone").value;
+    var phone = document.getElementById("fax").value;
+
+    function changedMail(changedValue) {
+        mail = changedValue;
     }
 
-    function changed(id, changedValue) {
+    function changedPhone(changedValue) {
+        phone = changedValue;
+    }
 
+    function changedFax(changedValue) {
+        fax = changedValue;
     }
 
     function sendForm() {
         document.getElementById("error").innerHTML = "";
-
-        if (false) {
+        debugger;
+        if (mail == defaultMail && phone == defaultPhone && fax == defaultFax) {
             alert("Herhangi bir değişiklik yapmadınız!");
             return;
         }
         else {
-            if (false) {
-                document.getElementById("error").innerHTML = "Anahtar kelime adı boş veya 3 karakterden küçük olamaz.";
+            if (!(mail.includes("@@"))) {
+                document.getElementById("error").innerHTML = "Geçerli bir mail adresi giriniz.";
                 return;
             }
         }
 
         $.ajax({
-            url: "/Dashboard/UpdateAbout",
+            url: "/Dashboard/UpdateContact",
             type: "POST",
             data: {
-                Id: keywordId, Title: keywordTitle, CreatedTime: "@ViewData["CreatedTime"]"
+                Id: contactId, CreatedTime: "@ViewData["CreatedTime"]", Phone: phone, Fax: fax, Email: mail
             },
             success: function () {
                 window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
