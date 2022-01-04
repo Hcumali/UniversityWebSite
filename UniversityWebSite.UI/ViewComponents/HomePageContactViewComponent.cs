@@ -15,6 +15,7 @@ namespace UniversityWebSite.UI.ViewComponents
         public IViewComponentResult Invoke()
         {
             var contact = _contactService.GetContactById(1);
+            ViewData["CreatedTime"] = contact.CreatedTime;
             return View(contact);
         }
     }

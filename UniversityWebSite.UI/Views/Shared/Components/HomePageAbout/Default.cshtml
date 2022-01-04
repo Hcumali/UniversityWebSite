@@ -16,33 +16,21 @@
 
         <div class="form-group">
             <label>Neden Biz? Başlıklı Paragraf</label>
-            <textarea class="form-control" rows="4" cols="40">@Model.Paragraph</textarea>
+            <textarea class="form-control" id="paragraph" rows="4" cols="40" onchange="changeAbout(this.value)">@Model.Paragraph</textarea>
         </div>
 
-        <div class="form-group">
-            <label><strong>Birinci Bilgilendirme Kutusu</strong></label><br />
-            <label>Başlık</label>
-            <input type="text" class="form-control" value="@Model.Boxes[0].Header" required>
-            <label>Metin</label>
-            <textarea class="form-control" rows="4" cols="40">@Model.Boxes[0].Text</textarea>
-        </div>
-
-        <div class="form-group">
-            <label><strong>İkinci Bilgilendirme Kutusu</strong></label><br />
-            <label>Başlık</label>
-            <input type="text" class="form-control" value="@Model.Boxes[1].Header" required>
-            <label>Metin</label>
-            <textarea class="form-control" rows="4" cols="40">@Model.Boxes[1].Text</textarea>
-        </div>
-
-        <div class="form-group">
-            <label><strong>Üçüncü Bilgilendirme Kutusu</strong></label><br />
-            <label>Başlık</label>
-            <input type="text" class="form-control" value="@Model.Boxes[2].Header" required>
-            <label>Metin</label>
-            <textarea class="form-control" rows="4" cols="40">@Model.Boxes[2].Text</textarea>
-        </div>
-
+        @{
+            for (int i = 0; i < Model.Boxes.Count; i++)
+            {
+                <div class="form-group" style="margin:2rem">
+                    <label><strong>@(i+1). Bilgilendirme Kutusu</strong></label><br />
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" id="@i" value="@Model.Boxes[i].Header" onchange="changeBoxHeader(@Model.Boxes[i].Id, this.value)" required>
+                    <label>Metin</label>
+                    <textarea class="form-control" id="@(i+5)" rows="4" cols="40" onchange="changeBoxText(@Model.Boxes[i].Id, this.value)" >@Model.Boxes[i].Text</textarea>
+                </div>
+            }
+        }
 
         <div class="row justify-content-center">
             <button type="submit" onclick="sendForm()" class="btn btn-primary align-baseline">Güncelle</button>
@@ -52,8 +40,85 @@
     </div>
 </div>
 
+
 <script>
+    var aboutId = @Model.Id;
+    var paragraphOfAbout = document.getElementById("paragraph").value;
+    var defaultParagraph = document.getElementById("paragraph").value;
+
+    var defaultBoxes = [
+        { 'Id': 1, 'Header': '', 'Text': '' },
+        { 'Id': 2, 'Header': '', 'Text': '' },
+        { 'Id': 3, 'Header': '', 'Text': '' }
+    ]
+
+    var boxes = [
+        { 'Id': 1, 'Header': '', 'Text': '' },
+        { 'Id': 2, 'Header': '', 'Text': '' },
+        { 'Id': 3, 'Header': '', 'Text': '' }
+    ]
+
+    // init default box value
+    for (var i = 0; i < boxes.length; i++) {
+        defaultBoxes[i].Header = document.getElementById(`${i}`).value;
+        defaultBoxes[i].Text = document.getElementById(`${i+5}`).value;
+
+        boxes[i].Header = document.getElementById(`${i}`).value;
+        boxes[i].Text = document.getElementById(`${i+5}`).value;
+    }
+
+    function changeAbout(paragraph) {
+        paragraphOfAbout = paragraph;
+    }
+
+    function changeBoxHeader(id, header) {
+        let box = boxes.find(x => x.Id == id);
+        box.Header = header;
+    }
+
+    function changeBoxText(id, text) {
+        let box = boxes.find(x => x.Id == id);
+        box.Text = text;
+    }
+
     function sendForm() {
-        console.log("working!");
+        document.getElementById("error").innerHTML = "";
+
+        debugger;
+
+        if (paragraphOfAbout == defaultParagraph && JSON.stringify(boxes) === JSON.stringify(defaultBoxes)) {
+            alert("Herhangi bir değişiklik yapmadınız!");
+            return;
+        }
+        
+        if (paragraphOfAbout == "" || paragraphOfAbout.length < 60) {
+            document.getElementById("error").innerHTML = "Paragraf boş veya 60 haneden küçük olamaz.";
+            document.getElementById("paragraph").value = defaultParagraph;
+            return;
+        }
+        for (var i = 0; i < boxes.length; i++) {
+            if (boxes[i].Header.length < 3) {
+                document.getElementById("error").innerHTML = "Kutu başlığı boş veya 3 haneden küçük olamaz.";
+                return;
+            }
+            if (boxes[i].Text.length < 30) {
+                document.getElementById("error").innerHTML = "Kutu metni boş veya 30 haneden küçük olamaz.";
+                return;
+            }
+        }
+
+
+        
+
+        $.ajax({
+            url: "/Dashboard/UpdateAbout",
+            type: "POST",
+            data: {
+                Id: aboutId, CreatedTime: "@ViewData["CreatedTime"]", Paragraph: paragraphOfAbout, Boxes: boxes
+            },
+            success: function () {
+                window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
+            }
+        });
     }
 </script>

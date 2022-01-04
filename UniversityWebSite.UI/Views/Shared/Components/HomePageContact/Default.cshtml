@@ -39,7 +39,39 @@
 </div>
 
 <script>
+    // Variable Definition
+
+    window.onload = function () {
+        // Default Value assign
+    }
+
+    function changed(id, changedValue) {
+
+    }
+
     function sendForm() {
-        console.log("working!");
+        document.getElementById("error").innerHTML = "";
+
+        if (false) {
+            alert("Herhangi bir değişiklik yapmadınız!");
+            return;
+        }
+        else {
+            if (false) {
+                document.getElementById("error").innerHTML = "Anahtar kelime adı boş veya 3 karakterden küçük olamaz.";
+                return;
+            }
+        }
+
+        $.ajax({
+            url: "/Dashboard/UpdateAbout",
+            type: "POST",
+            data: {
+                Id: keywordId, Title: keywordTitle, CreatedTime: "@ViewData["CreatedTime"]"
+            },
+            success: function () {
+                window.location = "/Dashboard/ReadCategory?page=" + "@ViewData["pageName"]";
+            }
+        });
     }
 </script>

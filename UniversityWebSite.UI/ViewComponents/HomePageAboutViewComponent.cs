@@ -15,6 +15,7 @@ namespace UniversityWebSite.UI.ViewComponents
         public IViewComponentResult Invoke()
         {
             var about = _aboutService.GetAboutById(1);
+            ViewData["CreatedTime"] = about.CreatedTime;
             return View(about);
         }
     }

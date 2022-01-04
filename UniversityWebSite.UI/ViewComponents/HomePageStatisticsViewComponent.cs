@@ -15,6 +15,7 @@ namespace UniversityWebSite.UI.ViewComponents
         public IViewComponentResult Invoke()
         {
             var statistic = _statisticService.GetStatisticById(1);
+            ViewData["CreatedTime"] = statistic.CreatedTime;
             return View(statistic);
         }
     }

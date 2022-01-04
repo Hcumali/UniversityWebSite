@@ -12,26 +12,41 @@ namespace UniversityWebSite.UI.Controllers
     [Authorize]
     public class DashboardController : Controller
     {
-        ICategoryService _categoryService;
-        ISubtitleService _subtitleService;
-        IKeywordService _keywordService;
-        IPictureService _pictureService;
-        IVideoService _videoService;
+        #region Definitions
+            ICategoryService _categoryService;
+            ISubtitleService _subtitleService;
+            IKeywordService _keywordService;
+            IPictureService _pictureService;
+            IVideoService _videoService;
+            IAboutService _aboutService;
+            IContactService _contactService;
+            IStatisticService _statisticService;
+        #endregion
 
         public DashboardController
             (
-                ICategoryService categoryService,
-                ISubtitleService subtitleService,
-                IKeywordService keywordService,
-                IPictureService pictureService,
-                IVideoService videoService
+                #region Parameters
+                    ICategoryService categoryService,
+                    ISubtitleService subtitleService,
+                    IKeywordService keywordService,
+                    IPictureService pictureService,
+                    IVideoService videoService,
+                    IAboutService aboutService,
+                    IContactService contactService,
+                    IStatisticService statisticService
+                #endregion
             )
         {
-            _categoryService = categoryService;
-            _subtitleService = subtitleService;
-            _keywordService = keywordService;
-            _pictureService = pictureService;
-            _videoService = videoService;
+            #region Assignments
+                _categoryService = categoryService;
+                _subtitleService = subtitleService;
+                _keywordService = keywordService;
+                _pictureService = pictureService;
+                _videoService = videoService;
+                _aboutService = aboutService;
+                _contactService = contactService;
+                _statisticService = statisticService;
+            #endregion
         }
 
 
@@ -138,6 +153,24 @@ namespace UniversityWebSite.UI.Controllers
         public void UpdateVideo(Video video)
         {
             _videoService.UpdateVideo(video);
+        }
+
+        [HttpPost]
+        public void UpdateAbout(About about)
+        {
+            _aboutService.UpdateAbout(about);
+        }
+
+        [HttpPost]
+        public void UpdateContact(Contact contact)
+        {
+            _contactService.UpdateContact(contact);
+        }
+
+        [HttpPost]
+        public void UpdateStatistic(Statistic statistic)
+        {
+            _statisticService.UpdateStatistic(statistic);
         }
 
         public async Task<IActionResult> Logout()
