@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UniversityWebSite.Entities.Concrete;
 using UniversityWebSite.DataAccess.Concrete.Mappings;
 using UniversityWebSite.DataAccess.Concrete.Initializer;
+using System.Reflection;
 
 namespace UniversityWebSite.DataAccess.Concrete.Contexts
 {
@@ -37,7 +38,14 @@ namespace UniversityWebSite.DataAccess.Concrete.Contexts
 
             modelBuilder.ApplyConfiguration(new AdminConfig());
             modelBuilder.ApplyConfiguration(new CategoryConfig());
+            modelBuilder.ApplyConfiguration(new AboutConfig());
             modelBuilder.ApplyConfiguration(new BoxConfig());
+            modelBuilder.ApplyConfiguration(new ContactConfig());
+            modelBuilder.ApplyConfiguration(new KeywordConfig());
+            modelBuilder.ApplyConfiguration(new PictureConfig());
+            modelBuilder.ApplyConfiguration(new StatisticConfig());
+            modelBuilder.ApplyConfiguration(new SubtitleConfig());
+            modelBuilder.ApplyConfiguration(new VideoConfig());
         }
     }
 }
