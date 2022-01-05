@@ -13,6 +13,11 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
     {
         public void Configure(EntityTypeBuilder<Box> builder)
         {
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Header).IsRequired();
+            builder.Property(x => x.Text).IsRequired();
+
             builder.HasOne(x => x.About).WithMany(x => x.Boxes).HasForeignKey(x => x.AboutId);
         }
     }

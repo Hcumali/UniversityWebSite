@@ -14,7 +14,7 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
         public void Configure(EntityTypeBuilder<Subtitle> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedOnAdd();
+
             builder.HasOne(x => x.Category).WithMany(x => x.Subtitles).HasForeignKey(x => x.CategoryId);
         }
     }

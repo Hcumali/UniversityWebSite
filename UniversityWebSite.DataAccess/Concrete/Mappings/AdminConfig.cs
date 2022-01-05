@@ -13,6 +13,8 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
     {
         public void Configure(EntityTypeBuilder<Admin> builder)
         {
+            builder.HasKey(x => x.Id);
+
             builder.Property(x => x.Username).IsRequired();
             builder.Property(x => x.Password).IsRequired();
         }

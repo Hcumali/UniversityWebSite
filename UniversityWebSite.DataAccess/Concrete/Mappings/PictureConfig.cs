@@ -13,7 +13,9 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
     {
         public void Configure(EntityTypeBuilder<Picture> builder)
         {
-            throw new NotImplementedException();
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x => x.Url).IsRequired();
         }
     }
 }

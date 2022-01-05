@@ -14,8 +14,8 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).ValueGeneratedOnAdd();
-            builder.Property(x => x.NavBarHeader).IsRequired();
+
+            builder.Property(x => x.NavBarHeader).IsRequired().HasMaxLength(30);
             builder.Property(x => x.Name).IsRequired();
         }
     }
