@@ -15,8 +15,8 @@ namespace UniversityWebSite.DataAccess.Concrete.Mappings
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.NavBarHeader).IsRequired().HasMaxLength(30);
-            builder.Property(x => x.Name).IsRequired().HasMaxLength(25);
+            builder.Property(x => x.NavBarHeader).IsRequired();
+            builder.Property(x => x.Name).IsRequired().HasMaxLength(40);
         }
     }
 }
