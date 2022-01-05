@@ -50,8 +50,6 @@
         videoUrl = defaultURL;
     }
 
-    debugger;
-
     function changedTitle(id, changedValue) {
         videoId = id;
         videoTitle = changedValue;
@@ -64,8 +62,6 @@
 
     function sendForm() {
         document.getElementById("error").innerHTML = "";
-
-        debugger;
 
         if (videoId == undefined || (videoTitle == defaultTitle && videoUrl == defaultURL)) {
             alert("Herhangi bir değişiklik yapmadınız!");
